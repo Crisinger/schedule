@@ -1,0 +1,21 @@
+
+!!! 5
+%html
+  %head
+    %title Scheduler
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+
+  %body
+    %h1.title Scheduler
+    #main
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
+      - if @current_user
+        %p You are logged in as #{@current_user.user_email} (User name: #{@current_user.user_first_name})
+        = button_to 'Log Out', logout_path, :method => 'delete'
+        %p.profile= link_to 'View Profile', user_path(@current_user) 
+      = yield

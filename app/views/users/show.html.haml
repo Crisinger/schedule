@@ -1,0 +1,33 @@
+-# app/views/users/show.html.haml
+
+-# app/views/users/show.html.haml
+%h2 Wlecome #{@user.first_name} #{@user.last_name}
+  
+%ul#details
+  %li
+    User ID:
+    = @user.user_id
+  %li
+    E-mail:
+    = @user.user_email
+  %li
+    First Name:
+    = @user.user_first_name
+  %li
+    Last Name:
+    = @user.user_last_name
+  %li
+    Administrator Satus:
+    = @user.user_administrator
+  %li
+    User Oriority:
+    = @user.user_priority
+  %li
+    Phone Number:
+    = @user.user_phone_number
+
+= link_to 'Edit', edit_user_path(@user)
+= button_to 'Delete', user_path(@user), :method => :delete, :confirm => "Are you sure you want to permanantly delete #{user.user_id}'s account?, This cannot be undone."
+= link_to 'Back to User Accounts', users_path
+
+= link_to 'Return to Main Menu', login_path
