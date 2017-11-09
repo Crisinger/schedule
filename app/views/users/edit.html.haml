@@ -1,25 +1,37 @@
 -# app/views/users/edit.html.haml
 
-%h1 Edit Your Existing User Account
+%h1 Edit #{@user.first_name} #{@user.last_name}'s account
 
 = form_tag user_path(@user), :method => :put do
-  =label :user, :user_id, 'User ID'
-  =text_field :user, 'user_id'
-  =label :user, :user_email, 'E-Mail'
-  =text_field :user,'user_email'
-  =label :user, :user_password, 'Password'
-  =text_field :user, 'user_password'
+
   =label :user, :user_first_name, 'First Name'
   =text_field :user, 'user_first_name'
+  
   =label :user, :user_last_name, 'Last Name'
   =text_field :user, 'user_last_name'
-  =label :user, :user_administrator, 'Administrator Status'
-  = select :user, :user_administrator, ['true','false','']
-  =label :user, :user_priority, 'User Priority'
-  = select :movie, :rating, ['1','2','3','4','5']
+  
+  = label :user, :email, 'Email'
+  = text_field :user, 'email'
+  
   =label :user, :user_phone_number, 'Phone Number'
   =text_field :user, 'user_phone_number'
   
-  =submit_tag 'Update User Account'
+  =label :user, :user_id, 'User ID'
+  =text_field :user, 'user_id'
   
-= link_to 'Return to Main Menu', sessions_path
+  =label :user, :user_administrator, 'Administrator Status'
+  = select :user, :user_administrator, ['true','false','']
+  
+  =label :user, :user_priority, 'User Priority'
+  = select :user, :user_priority, ['1','2','3','4','5']
+  
+  = label :user, :password, 'Password'
+  = password_field :user, 'password'
+
+  = label :user, :password_confirmation, 'Confirm Password'
+  = password_field :user, 'password_confirmation'
+  
+  =submit_tag 'Update User Account'
+
+-# need to change this to the correct route
+= link_to 'Cancel', show_administrator_sessions_path

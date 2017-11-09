@@ -1,6 +1,6 @@
 -# app/views/sessions/new.html.haml
 
-%h1 Create New Session
+%h1 Log In
 
 = form_tag sessions_path, :method => 'post' do
 
@@ -11,5 +11,6 @@
   = password_field :session, 'password'
 
   = submit_tag 'Log in'
-  
+
+-# will need to be removed to give admin sole authority to do this
 = link_to 'Add new user', new_user_path
