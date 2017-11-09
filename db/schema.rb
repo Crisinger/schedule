@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171108231319) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "shifts", force: :cascade do |t|
     t.integer "shift_id"
     t.time "shift_start_time"
