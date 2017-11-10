@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_current_user, only: [:show, :edit, :update, :destroy]
   
   def user_params
     params.require(:user).permit(:user_id,:user_first_name,:user_last_name, :email, :password, :password_confirmation,:user_administrator,:user_priority,:user_phone_number)
@@ -10,7 +10,9 @@ class UsersController < ApplicationController
   end
 
   def show
-    set_user
+    #set_user
+    #@user = User.find(params[:id])
+    @user = @current_user
   end
 
   def new
@@ -18,7 +20,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-    set_user
+    #set_user 
+    @user = User.find(params[:id])
   end
 
   def create
@@ -50,10 +53,10 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
 
-  private
+  #private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:user_id])
-    end
+    #def set_user
+      #@user = User.find(params[:user_id])
+    #end
 
 end

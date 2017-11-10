@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
       #sign in and redirect to show page
       cookies.permanent[:session_token]= user.session_token
       # need to vreate if else statments to redirect admin and employee paths
-      redirect_to signup_url
+      redirect_to user_path(:id)
       flash[:notice]= 'You have logged in'
     else
       flash.now[:warning] = 'Invalid email/password combination'
@@ -23,6 +23,6 @@ class SessionsController < ApplicationController
     cookies.delete(:session_token) 
     @current_user=nil
     flash[:notice]= 'You have logged out'
-    redirect_to new_session
+    redirect_to login_path
   end
 end
