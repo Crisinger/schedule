@@ -40,16 +40,16 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find params[:user_id]
+    @user = @current_user
     @user.update_attributes!(user_params)
-    flash[:notice] = "#{@user.user_id}'s account was successfully updated."
+    flash[:notice] = "#{@user.email}'s account was successfully updated."
     redirect_to user_path(@user)
   end
 
   def destroy
-    @user = User.find(params[:user_id])
+    @user = @current_user
     @user.destroy
-    flash[:notice] = "#{@user.user_id}'s account was successfully deleted."
+    flash[:notice] = "#{@user.email}'s account was successfully deleted."
     redirect_to users_path
   end
 
