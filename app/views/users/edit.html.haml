@@ -1,6 +1,6 @@
 -# app/views/users/edit.html.haml
 
-%h1 Edit #{@user.first_name} #{@user.last_name}'s account
+%h1 Edit #{@user.user_first_name} #{@user.user_last_name}'s account
 
 = form_tag user_path(@user), :method => :put do
 
@@ -34,4 +34,4 @@
   =submit_tag 'Update User Account'
 
 -# need to change this to the correct route
-= link_to 'Cancel', show_administrator_sessions_path
+-#= link_to 'Cancel', show_administrator_sessions_path

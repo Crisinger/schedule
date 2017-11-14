@@ -1,6 +1,6 @@
 -# app/views/users/show.html.haml
 
-%h2 Manage #{@user.first_name} #{@user.last_name}'s account
+%h2 Manage #{@user.user_first_name} #{@user.user_last_name}'s account
   
 %ul#details
   %li
@@ -8,7 +8,7 @@
     = @user.user_id
   %li
     E-mail:
-    = @user.user_email
+    = @user.email
   %li
     First Name:
     = @user.user_first_name
@@ -26,8 +26,8 @@
     = @user.user_phone_number
 
 = link_to 'Edit', edit_user_path(@user)
-= button_to 'Delete', user_path(@user), :method => :delete, :confirm => "Are you sure you want to permanantly delete #{user.user_id}'s account?, This cannot be undone."
+= button_to 'Delete', user_path(@user), :method => :delete, :confirm => "Are you sure you want to permanantly delete #{@user.user_id}'s account?, This cannot be undone."
 = link_to 'Back to User Accounts', users_path
 
 -# need to change this to the correct route
-= link_to 'Return to Main Menu', show_administrator_sessions_path
+-#= link_to 'Return to Main Menu', show_administrator_sessions_path

@@ -25,6 +25,7 @@ class UsersController < ApplicationController
     # default: render 'new' template
   end
 
+
   def create
     if User.find_by_user_id(params[:user][:user_id])
       flash[:warning]= "Sorry, this user-id is already taken. Please Try again."
@@ -45,14 +46,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user = User.find params[:user_id]
+    @user = @current_user
     @user.update_attributes!(user_params)
     flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully updated."
     redirect_to user_path(@user)
   end
 
   def destroy
-    @user = User.find(params[:user_id])
+    @user = @current_user
     @user.destroy
     flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully deleted."
     redirect_to users_path
