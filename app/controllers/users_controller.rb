@@ -9,11 +9,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:user_id])
   end
   
-  def index_administrator
+  def index
     @users = User.all
   end
   
-  def index_employee
+  def administrator
+    @users = User.all
+  end
+  
+  def employee
     @users = User.all
   end
 
@@ -29,7 +33,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully created."
-        redirect_to show_administrator_sessions_path
+        redirect_to administrator_path
       else
         render 'new'
       end 
