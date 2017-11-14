@@ -12,12 +12,12 @@ class SessionsController < ApplicationController
       #sign in and redirect to show page
       cookies.permanent[:session_token]= user.session_token
       # if admin is true -> redirect administrator path
-      if params([:user_administrator]) == true
-        redirect_to show_administrator_sessions_path
+      if user.user_administrator == true
+        redirect_to administrator_session_path
       end
       # if admin is false -> redirect employee path
       else
-        redirect_to show_employee_sessions_path
+        redirect_to employee_session_path
       end
       flash[:notice]= 'You have logged in'
     else
@@ -26,11 +26,15 @@ class SessionsController < ApplicationController
     end  
   end
 
-  def show_administrator
+  def show
     @user = User.find(params[:user_id])
   end
   
-  def show_employee
+  def administrator
+    @user = User.find(params[:user_id])
+  end
+  
+  def employee
     @user = User.find(params[:user_id])
   end
   
