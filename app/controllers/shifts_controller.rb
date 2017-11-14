@@ -59,4 +59,4 @@ class ShiftsController < ApplicationController
     def shift_params
       params.fetch(:shift, {})
     end
-end
+  end
