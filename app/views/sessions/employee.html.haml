@@ -1,6 +1,5 @@
 -# app/views/sessions/show_employee.html.haml
 
-%h2 What would you like to do #{@user.first_name}
+%h2 What would you like to do #{@user.first_name} #{@user.last_name}
 
--# need to change this to the correct route
 = link_to 'View Employee Contact Information', employee_user_path
