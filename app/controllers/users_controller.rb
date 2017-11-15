@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   # before_action :set_user, only: [:show, :edit, :update, :destroy]
   
   def user_params
-    params.require(:user).permit(:user_id,:user_first_name,:user_last_name, :email, :password, :password_confirmation,:user_administrator,:user_priority,:user_phone_number)
+    params.require(:user).permit(:user_id, :user_first_name, :user_last_name, :email, :password, :password_confirmation, :user_administrator, :user_priority, :user_phone_number)
   end
 
   def edit
@@ -28,12 +28,12 @@ class UsersController < ApplicationController
   def create
     if User.find_by_user_id(params[:user][:user_id])
       flash[:warning]= "Sorry, this user-id is already taken. Please Try again."
-      redirect_to new_user_path
+      redirect_to new_user_path and return
     else   
       @user = User.new(user_params)
       if @user.save
         flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully created."
-        redirect_to administrator_path
+        redirect_to administrator_user_path and return
       else
         render 'new'
       end 
