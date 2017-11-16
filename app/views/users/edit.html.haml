@@ -31,7 +31,6 @@
   = label :user, :password_confirmation, 'Confirm Password'
   = password_field :user, 'password_confirmation'
   
-  =submit_tag 'Update User Account'
+  %div=submit_tag 'Update Account'
 
--# need to change this to the correct route
--#= link_to 'Cancel', show_administrator_sessions_path
+%div= link_to "Cancel", :back

@@ -1,7 +1,7 @@
 class CreateUsers < ActiveRecord::Migration[5.1]
   def change
-    #drop_table :users
     create_table :users do |t|
+      t.integer :user_id
       t.string :user_first_name
       t.string :user_last_name
       t.boolean :user_administrator

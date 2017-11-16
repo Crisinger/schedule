@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :session do
+  resources :sessions do
     member do
       get 'administrator'
       get 'employee'

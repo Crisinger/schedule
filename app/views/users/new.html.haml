@@ -2,7 +2,7 @@
 
 %h1 Create New Employee Account
 
--unless @user ==nil
+-unless @user == nil
   -if @user.errors.any?
     %ul
     -@user.errors.full_messages.each do |msg|
@@ -37,7 +37,6 @@
   = label :user, :password_confirmation, 'Confirm Password'
   = password_field :user, 'password_confirmation'
   
-  =submit_tag 'Create New User Account'
+  %div=submit_tag 'Create New Account'
 
--# need to change this to the correct route
--#= link_to 'Return to Main Menu', show_administrator_sessions_path
+%div= link_to "Cancel", :back
