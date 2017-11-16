@@ -25,5 +25,5 @@
         %td= user.user_priority
         %td= link_to "More about #{user.user_first_name}", user_path(user)
 
-= link_to 'Add New User Account', new_user_path
-= link_to 'Return to Main Menu', administrator_session_path
+%div= link_to 'Create New Account', new_user_path
+%div= link_to 'Main Menu', administrator_session_path
