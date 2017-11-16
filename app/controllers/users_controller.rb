@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     if User.find_by_user_id(params[:user][:user_id])
       flash[:warning]= "Sorry, this user-id is already taken. Please Try again."
       redirect_to new_user_path and return
-    elsif User.find_by_user_id(params[:user][:email])
+    elsif User.find_by_email(params[:user][:email])
       flash[:warning]= "Sorry, this email is already taken. Please Try again."
       redirect_to new_user_path and return
     else
