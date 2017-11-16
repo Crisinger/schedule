@@ -11,39 +11,38 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by_email(params[:session][:email])
-    if user && user.authenticate(params[:session][:password])
+    if user && user.authenticate(params[:session][:password]) && user.user_administrator == true
       cookies.permanent[:session_token]= user.session_token
       flash[:notice]= 'You Have Succesfully Logged in'
-      if user.user_administrator == true
-        redirect_to administrator_session_path
-      end
-      else
-        redirect_to employee_session_path and return
-      end
-    else
-      flash.now[:warning] = 'Invalid email/password combination'
+      redirect_to administrator_session_path(user) and return
+    elsif user && user.authenticate(params[:session][:password]) && user.user_administrator == false
+      cookies.permanent[:session_token]= user.session_token
+      flash[:notice]= 'You Have Succesfully Logged in'
+      redirect_to employee_session_path(user) and return
+    elsif !user
+      flash[:notice] = 'Invalid email'
       redirect_to login_path and return
-    end  
+    else !user
+      flash[:notice] = 'Invalid password'
+      redirect_to login_path and return
+    end
   end
-
-#  def show
-#    id = params[:id]
-#    @user = User.find(id)
-#  end
   
   def administrator
-    id = params[:user][:id]
-    @user = User.find_by_email(params[:session][:email])
+    id = params[:id]
+    @user = User.find(id)
   end
   
   def employee
-    #id = params[:id]
-    @user = User.find_by_email(params[:session][:email])
+    id = params[:id]
+    @user = User.find(id)
   end
 
   def destroy
     cookies.delete(:session_token) 
     @current_user=nil
     flash[:notice]= 'You have logged out'
-    redirect_to new_session and return
+    redirect_to login_path and return
   end
+  
+end

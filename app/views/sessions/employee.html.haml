@@ -1,5 +1,6 @@
 -# app/views/sessions/show_employee.html.haml
 
-%h2 What would you like to do #{@user.first_name} #{@user.last_name}
+%h1 You are loged in as #{@user.user_first_name} #{@user.user_last_name}
 
 = link_to 'View Employee Contact Information', employee_user_path
+= button_to 'Log Out', logout_path, :method => 'delete'
