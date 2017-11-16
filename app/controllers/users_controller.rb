@@ -26,12 +26,14 @@ class UsersController < ApplicationController
     # default: render 'new' template
   end
 
-
   def create
     if User.find_by_user_id(params[:user][:user_id])
       flash[:warning]= "Sorry, this user-id is already taken. Please Try again."
       redirect_to new_user_path and return
-    else   
+    elsif User.find_by_user_id(params[:user][:email])
+      flash[:warning]= "Sorry, this email is already taken. Please Try again."
+      redirect_to new_user_path and return
+    else
       @user = User.new(user_params)
       if @user.save
         flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully created."
@@ -55,7 +57,7 @@ class UsersController < ApplicationController
       flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully updated."
       redirect_to administrator_user_path(@user)
     else
-      flash[:notice] = "Something happend while tryin to update #{@user.user_first_name} #{@user.user_last_name}'s account."
+      flash[:notice] = "Something happend while trying to update #{@user.user_first_name} #{@user.user_last_name}'s account."
       redirect_to user_path(@user)
     end
   end
@@ -63,9 +65,13 @@ class UsersController < ApplicationController
   def destroy
     id = params[:id]
     @user = User.find(id)
-    @user.destroy
-    flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully deleted."
-    redirect_to administrator_user_path(@user)
+    if @user.destroy
+      flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully deleted."
+      redirect_to administrator_user_path(@user)
+    else
+      flash[:notice] = "Something happened while trying to delete #{@user.user_first_name} #{@user.user_last_name}'s account."
+      redirect_to user_path(@user)
+    end
   end
 
 end
