@@ -10,6 +10,9 @@ class User < ApplicationRecord
                     uniqueness: {case_sensitive: false}
   validates :password, presence: true, length: {minimum: 6}
   validates :password_confirmation, presence: true
+  
+  has_many :availabilities
+  
 private
   def create_session_token
     self.session_token = SecureRandom.urlsafe_base64

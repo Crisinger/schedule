@@ -1,0 +1,69 @@
+-# app/views/availability/new.html.haml
+%h1 #{@user.first_name} #{@user.last_name}'s Weekly Availability
+
+= form_tag user_path(@user), :method => :put do
+  %h2 Monday
+  %label 9:00 AM to 12:00 AM
+  = check_box_tag :id => "monday_first_checkbox"
+  %label 12:00 AM to 3:00 PM
+  = check_box_tag :id => "monday_second_checkbox"
+  %label 3:00 PM to 6:00 PM
+  = check_box_tag :id => "monday_third_checkbox"
+
+  %h2 Tuesday
+  %label 9:00 AM to 12:00 AM
+  = check_box_tag :id => "tuesday_first_checkbox"
+  %label 12:00 AM to 3:00 PM
+  = check_box_tag :id => "tuesday_second_checkbox"
+  %label 3:00 PM to 6:00 PM
+  = check_box_tag :id => "tuesday_third_checkbox"
+  
+  %h2 Wednesday
+  %label 9:00 AM to 12:00 AM
+  = check_box_tag :id => "wednesday_first_checkbox"
+  %label 12:00 AM to 3:00 PM
+  = check_box_tag :id => "wednesday_second_checkbox"
+  %label 3:00 PM to 6:00 PM
+  = check_box_tag :id => "wednesday_third_checkbox"
+  
+  %h2 Tursday
+  %label 9:00 AM to 12:00 AM
+  = check_box_tag :id => "tursday_first_checkbox"
+  %label 12:00 AM to 3:00 PM
+  = check_box_tag :id => "tursday_second_checkbox"
+  %label 3:00 PM to 6:00 PM
+  = check_box_tag :id => "tursday_third_checkbox"
+  
+  %h2 Friday
+  %label 9:00 AM to 12:00 AM
+  = check_box_tag :id => "friday_first_checkbox"
+  %label 12:00 AM to 3:00 PM 
+  = check_box_tag :id => "friday_second_checkbox"
+  %label 3:00 PM to 6:00 PM
+  = check_box_tag :id => "friday_third_checkbox"
+  
+  %h2 Saturday
+  %label 9:00 AM to 12:00 AM
+  = check_box_tag :id => "saturday_first_checkbox"
+  %label 12:00 AM to 3:00 PM
+  = check_box_tag :id => "saturday_second_checkbox"
+  %label 3:00 PM to 6:00 PM
+  = check_box_tag :id => "saturday_third_checkbox"
+  
+  %h2 Saturday
+  %label 9:00 AM to 12:00 AM
+  = check_box_tag :id => "saturday_first_checkbox"
+  %label 12:00 AM to 3:00 PM
+  = check_box_tag :id => "saturday_second_checkbox"
+  %label 3:00 PM to 6:00 PM
+  = check_box_tag :id => "saturday_third_checkbox"
+  
+  %h2 Sunday
+  %label 9:00 AM to 12:00 AM
+  = check_box_tag :id => "sunday_first_checkbox"
+  %label 12:00 AM to 3:00 PM
+  = check_box_tag :id => "sunday_second_checkbox"
+  %label 3:00 PM to 6:00 PM
+  = check_box_tag :id => "sunday_third_checkbox"
+  
+= link_to 'Save && Return', user_path(user)
