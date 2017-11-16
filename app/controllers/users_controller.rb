@@ -37,7 +37,8 @@ class UsersController < ApplicationController
         flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully created."
         redirect_to administrator_user_path(@user) and return
       else
-        render 'new'
+        flash[:notice] = "Something went wrong while trying to create a new account. Please try again"
+        redirect_to new_user_path(@user) and return
       end 
     end  
   end
@@ -50,9 +51,13 @@ class UsersController < ApplicationController
   def update
     id = params[:id]
     @user = User.find(id)
-    @user.update_attributes!(user_params)
-    flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully updated."
-    redirect_to administrator_user_path(@user)
+    if @user.update_attributes(user_params)
+      flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully updated."
+      redirect_to administrator_user_path(@user)
+    else
+      flash[:notice] = "Something happend while tryin to update #{@user.user_first_name} #{@user.user_last_name}'s account."
+      redirect_to user_path(@user)
+    end
   end
 
   def destroy
