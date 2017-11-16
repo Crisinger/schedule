@@ -1,3 +1,10 @@
 // Place all the styles related to the availability controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.inline-field input,
+.inline-field label {
+  display: inline-block;
+  margin-bottom: 0; /* I added this after I posted my reply */
+  vertical-align: middle; /* Fixes any weird issues in Firefox and IE */
+}
