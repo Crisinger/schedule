@@ -6,7 +6,8 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:user_id])
+    id = params[:id]
+    @user = User.find(id)
   end
   
   def index
@@ -34,7 +35,7 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully created."
-        redirect_to administrator_user_path and return
+        redirect_to administrator_user_path(@user) and return
       else
         render 'new'
       end 
@@ -42,21 +43,24 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user = User.find(params[:user_id])
+    id = params[:id]
+    @user = User.find(id)
   end
 
   def update
-    @user = @current_user
+    id = params[:id]
+    @user = User.find(id)
     @user.update_attributes!(user_params)
     flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully updated."
-    redirect_to user_path(@user)
+    redirect_to administrator_user_path(@user)
   end
 
   def destroy
-    @user = @current_user
+    id = params[:id]
+    @user = User.find(id)
     @user.destroy
     flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully deleted."
-    redirect_to users_path
+    redirect_to administrator_user_path(@user)
   end
 
 end
