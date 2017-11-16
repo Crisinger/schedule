@@ -26,6 +26,7 @@ class UsersController < ApplicationController
     # default: render 'new' template
   end
 
+
   def create
     if User.find_by_user_id(params[:user][:user_id])
       flash[:warning]= "Sorry, this user-id is already taken. Please Try again."
