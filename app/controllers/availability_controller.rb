@@ -1,5 +1,5 @@
 class AvailabilityController < ApplicationController
-  before_action: :set_current_user
+  before_action :set_current_user
   before_action :has_user, :only => [:new, :create]
   
   protected
