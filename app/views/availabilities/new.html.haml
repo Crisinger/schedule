@@ -1,7 +1,7 @@
 -# app/views/availability/new.html.haml
-%h1 #{@user.user_first_name} #{@user.user_last_name}'s Weekly Availability
+%h1 #{@current_user.user_first_name} #{@current_user.user_last_name}'s Weekly Availability
 
-= form_tag user_path(@user), :method => :put do
+= form_tag availabilities_path, :method => :post do
   %h2 Monday
   %fieldset
     %span.checkbox-wrapper
@@ -86,5 +86,7 @@
     
     %input{ :type=>"checkbox", :id => "sunday_third_checkbox" }
     %label 3:00 PM to 6:00 PM
+    
+  %div= submit_tag 'Save'
   
-= link_to 'Save && Return', user_path(user)
+-#= link_to 'Save and Return', user_path(@current_user)
