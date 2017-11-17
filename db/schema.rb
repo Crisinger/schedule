@@ -10,34 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171115004245) do
+ActiveRecord::Schema.define(version: 20171117215533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "availabilities", force: :cascade do |t|
     t.bigint "user_id"
-    t.boolean "monday_first"
-    t.boolean "monday_second"
-    t.boolean "monday_third"
-    t.boolean "tuesday_first"
-    t.boolean "tuesday_second"
-    t.boolean "tuesday_third"
-    t.boolean "wednesday_first"
-    t.boolean "wednesday_second"
-    t.boolean "wednesday_third"
-    t.boolean "thursday_first"
-    t.boolean "thursday_second"
-    t.boolean "thursday_third"
-    t.boolean "friday_first"
-    t.boolean "friday_second"
-    t.boolean "friday_third"
-    t.boolean "saturday_first"
-    t.boolean "saturday_second"
-    t.boolean "saturday_third"
-    t.boolean "sunday_first"
-    t.boolean "sunday_second"
-    t.boolean "sunday_third"
+    t.boolean "monday_first", default: false
+    t.boolean "monday_second", default: false
+    t.boolean "monday_third", default: false
+    t.boolean "tuesday_first", default: false
+    t.boolean "tuesday_second", default: false
+    t.boolean "tuesday_third", default: false
+    t.boolean "wednesday_first", default: false
+    t.boolean "wednesday_second", default: false
+    t.boolean "wednesday_third", default: false
+    t.boolean "thursday_first", default: false
+    t.boolean "thursday_second", default: false
+    t.boolean "thursday_third", default: false
+    t.boolean "friday_first", default: false
+    t.boolean "friday_second", default: false
+    t.boolean "friday_third", default: false
+    t.boolean "saturday_first", default: false
+    t.boolean "saturday_second", default: false
+    t.boolean "saturday_third", default: false
+    t.boolean "sunday_first", default: false
+    t.boolean "sunday_second", default: false
+    t.boolean "sunday_third", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_availabilities_on_user_id"
