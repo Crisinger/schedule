@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   
   def user_params
     params.require(:user).permit(:user_id, :user_first_name, :user_last_name, :email, :password, :password_confirmation, :user_administrator, :user_priority, :user_phone_number)
-  end
+  end 
   
   def new
     # default: render 'new' template
