@@ -88,3 +88,5 @@ shifts = [{:shift_id => '0001', :shift_start_time => '00:00:00', :shift_end_time
 shifts.each do |shift|
   Shift.create!(shift)
 end
+
+User.create!(:user_first_name => 'john', :user_last_name => 'doe', :user_administrator => true, :user_priority => 1, :email => 'heroku@gmail.com', :password => 'password', :password_confirmation => 'password', :user_id => 1)
