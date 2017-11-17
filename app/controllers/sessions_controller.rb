@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:session][:email])
+    user = User.find_by_email(params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password]) && user.user_administrator == true
       cookies.permanent[:session_token]= user.session_token
       flash[:notice]= 'You Have Succesfully Logged in'
@@ -20,10 +20,10 @@ class SessionsController < ApplicationController
       flash[:notice]= 'You Have Succesfully Logged in'
       redirect_to employee_session_path(user) and return
     elsif !user
-      flash[:notice] = 'Invalid email'
+      flash[:warning] = 'Invalid email'
       redirect_to login_path and return
     else !user
-      flash[:notice] = 'Invalid password'
+      flash[:warning] = 'Invalid password'
       redirect_to login_path and return
     end
   end
