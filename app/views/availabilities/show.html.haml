@@ -1,0 +1,69 @@
+-# app/views/availability/show.html.haml
+
+%h1 #{@current_user.user_first_name} #{@current_user.user_last_name}'s Weekly Availability
+%ul#details 
+  %li
+    Monday 9:00 AM to 12:00 AM   
+    = @availability.monday_first
+  %li
+    Monday 12:00 AM to 3:00 PM   
+    = @availability.monday_second
+  %li
+    Monday  3:00 PM to 6:00 PM  
+    = @availability.monday_third
+  %li
+    Tuesday 9:00 AM to 12:00 AM
+    = @availability.tuesday_first
+  %li
+    Tuesday 12:00 AM to 3:00 PM
+    = @availability.tuesday_second
+  %li
+    Tuesday 3:00 PM to 6:00 PM
+    = @availability.tuesday_third
+  %li
+    Wednesday 9:00 AM to 12:00 AM
+    = @availability.wednesday_first
+  %li
+    Wednesday 12:00 AM to 3:00 PM
+    = @availability.wednesday_second
+  %li
+    Wednesday 3:00 PM to 6:00 PM
+    = @availability.wednesday_third
+  %li
+    Thursday 9:00 AM to 12:00 AM
+    = @availability.tursday_first
+  %li
+    Thursday 12:00 AM to 3:00 PM
+    = @availability.thursday_second
+  %li
+    Thursday  3:00 PM to 6:00 PM
+    = @availability.tursday_third
+  %li
+    Friday 9:00 AM to 12:00 AM
+    = @availability.friday_first
+  %li
+    Friday 12:00 AM to 3:00 PM
+    = @availability.friday_second
+  %li
+    Friday  3:00 PM to 6:00 PM
+    = @availability.friday_third
+  %li
+    Saturday 9:00 AM to 12:00 AM
+    = @availability.saturday_first
+  %li
+    Saturday 12:00 AM to 3:00 PM
+    = @availability.saturday_second
+  %li
+    Saturday  3:00 PM to 6:00 PM
+    = @availability.saturday_third
+  %li
+    Sunday 9:00 AM to 12:00 AM
+    = @availability.sunday_first
+  %li
+    Sunday 12:00 AM to 3:00 PM
+    = @availability.sunday_second
+  %li
+    Sunday  3:00 PM to 6:00 PM
+    = @availability.sunday_third
+    
+%div= link_to "Back", :back
