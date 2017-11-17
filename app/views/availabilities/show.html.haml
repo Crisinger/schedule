@@ -1,0 +1,39 @@
+-# app/views/availabilities/show.html.haml
+
+%h1 #{@current_user.user_first_name} #{@current_user.user_last_name}'s Availability
+
+%ul#details
+  %li
+    :plain
+        Day         Shift   Available
+        Monday      1       =@current_user.availabilities.monday_first_checkbox
+        Monday      2       =@current_user.availabilities.monday_second_checkbox
+        Monday      3       =@current_user.availabilities.monday_third_checkbox
+        
+        Tuesday      1       =@current_user.availabilities.tuesday_first_checkbox
+        Tuesday      2       =@current_user.availabilities.tuesday_second_checkbox
+        Tuesday      3       =@current_user.availabilities.tuesday_third_checkbox
+
+        Wednesday      1       =@current_user.availabilities.wednesday_first_checkbox
+        Wednesday      2       =@current_user.availabilities.wednesday_second_checkbox
+        Wednesday      3       =@current_user.availabilities.wednesday_third_checkbox
+
+        Thursday      1       =@current_user.availabilities.tursday_first_checkbox
+        Thursday      2       =@current_user.availabilities.tursday_second_checkbox
+        Thursday      3       =@current_user.availabilities.tursday_third_checkbox
+
+        Friday      1       =@current_user.availabilities.friday_first_checkbox
+        Friday      2       =@current_user.availabilities.friday_second_checkbox
+        Friday      3       =@current_user.availabilities.friday_third_checkbox
+
+        Saturday      1       =@current_user.availabilities.saturday_first_checkbox
+        Saturday      2       =@current_user.availabilities.saturday_second_checkbox
+        Saturday      3       =@current_user.availabilities.saturday_third_checkbox
+
+        Sunday      1       =@current_user.availabilities.sunday_first_checkbox
+        Sunday      2       =@current_user.availabilities.sunday_second_checkbox
+        Sunday      3       =@current_user.availabilities.sunday_third_checkbox
+
+
+
+%div= link_to 'Cancel', employee_user_path

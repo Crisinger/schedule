@@ -1,91 +1,84 @@
 -# app/views/availability/new.html.haml
 %h1 #{@current_user.user_first_name} #{@current_user.user_last_name}'s Weekly Availability
 
-= form_tag availabilities_path, :method => :post do
+= form_tag availabilities_path, :method => 'post' do
   %h2 Monday
   %fieldset
-    %span.checkbox-wrapper
-      %input{ :type=>"checkbox",:id => "monday_first_checkbox" }
-    %label 9:00 AM to 12:00 AM
-   
-    %input{ :type=>"checkbox", :id => "monday_second_checkbox" }
-    %label 12:00 AM to 3:00 PM
+    =label :availability, :monday_first, '12:00 am - 8:00 am'
+    =check_box :availability, 'monday_first'
     
-    %input{ :type=>"checkbox",:id => "monday_third_checkbox" }
-    %label 3:00 PM to 6:00 PM
+    =label :availability, :monday_second, '8:00 am - 4:00 pm'
+    =check_box :availability, 'monday_second'
+    
+    =label :availability, :monday_third, '4:00 pm - 12:00 am'
+    =check_box :availability, 'monday_third'
   
   
   %h2 Tuesday
   %fieldset
-    %span.checkbox-wrapper
-      %input{ :type=>"checkbox", :id => "tuesday_first_checkbox" }
-    %label 9:00 AM to 12:00 AM
+    =label :availability, :tuesday_first, '12:00 am - 8:00 am'
+    =check_box :availability, 'tuesday_first'
     
-    %input{ :type=>"checkbox", :id => "tuesday_second_checkbox" }
-    %label 12:00 AM to 3:00 PM
+    =label :availability, :tuesday_second, '8:00 am - 4:00 pm'
+    =check_box :availability, 'tuesday_second'
     
-    %input{ :type=>"checkbox",:id => "tuesday_third_checkbox" }
-    %label 3:00 PM to 6:00 PM
+    =label :availability, :tuesday_third, '4:00 pm - 12:00 am'
+    =check_box :availability, 'tuesday_third'
     
   %h2 Wednesday
   %fieldset
-    %span.checkbox-wrapper
-      %input{ :type=>"checkbox", :id => "wednesday_first_checkbox" }
-    %label 9:00 AM to 12:00 AM
+    =label :availability, :wednesday_first, '12:00 am - 8:00 am'
+    =check_box :availability, 'wednesday_first'
     
-    %input{ :type=>"checkbox",:id => "wednesday_second_checkbox" }
-    %label 12:00 AM to 3:00 PM
+    =label :availability, :wednesday_second, '8:00 am - 4:00 pm'
+    =check_box :availability, 'wednesday_second'
     
-    %input{ :type=>"checkbox",:id => "wednesday_third_checkbox" }
-    %label 3:00 PM to 6:00 PM
+    =label :availability, :wednesday_third, '4:00 pm - 12:00 am'
+    =check_box :availability, 'wednesday_third'
     
   %h2 Thursday
   %fieldset
-    %span.checkbox-wrapper
-      %input{ :type=>"checkbox",:id => "tursday_first_checkbox" }
-    %label 9:00 AM to 12:00 AM
+    =label :availability, :thursday_first, '12:00 am - 8:00 am'
+    =check_box :availability, 'thursday_first'
     
-    %input{ :type=>"checkbox",:id => "tursday_second_checkbox" }
-    %label 12:00 AM to 3:00 PM
+    =label :availability, :thursday_second, '8:00 am - 4:00 pm'
+    =check_box :availability, 'thursday_second'
     
-    %input{ :type=>"checkbox",:id => "tursday_third_checkbox" }
-    %label 3:00 PM to 6:00 PM
+    =label :availability, :thursday_third, '4:00 pm - 12:00 am'
+    =check_box :availability, 'thursday_third'
     
   %h2 Friday
   %fieldset
-    %span.checkbox-wrapper
-      %input{ :type=>"checkbox",:id => "friday_first_checkbox" }
-    %label 9:00 AM to 12:00 AM
+    =label :availability, :friday_first, '12:00 am - 8:00 am'
+    =check_box :availability, 'friday_first'
     
-    %input{ :type=>"checkbox", :id => "friday_second_checkbox" }
-    %label 12:00 AM to 3:00 PM
+    =label :availability, :friday_second, '8:00 am - 4:00 pm'
+    =check_box :availability, 'friday_second'
     
-    %input{ :type=>"checkbox", :id => "friday_third_checkbox"}
-    %label 3:00 PM to 6:00 PM
+    =label :availability, :friday_third, '4:00 pm - 12:00 am'
+    =check_box :availability, 'friday_third'
     
   %h2 Saturday
   %fieldset
-    %span.checkbox-wrapper
-      %input{ :type=>"checkbox", :id => "saturday_first_checkbox" }
-    %label 9:00 AM to 12:00 AM
+    =label :availability, :saturday_first, '12:00 am - 8:00 am'
+    =check_box :availability, 'saturday_first'
     
-    %input{ :type=>"checkbox", :id => "saturday_second_checkbox" }
-    %label 12:00 AM to 3:00 PM
+    =label :availability, :saturday_second, '8:00 am - 4:00 pm'
+    =check_box :availability, 'saturday_second'
     
-    %input{ :type=>"checkbox", :id => "saturday_third_checkbox" }
-    %label 3:00 PM to 6:00 PM
+    =label :availability, :saturday_third, '4:00 pm - 12:00 am'
+    =check_box :availability, 'saturday_third'
     
   %h2 Sunday
   %fieldset
-    %span.checkbox-wrapper
-      %input{ :type=>"checkbox", :id => "sunday_first_checkbox" }
-    %label 9:00 AM to 12:00 AM
+    =label :availability, :sunday_first, '12:00 am - 8:00 am'
+    =check_box :availability, 'sunday_first'
     
-    %input{ :type=>"checkbox", :id => "sunday_second_checkbox" }
-    %label 12:00 AM to 3:00 PM
+    =label :availability, :sunday_second, '8:00 am - 4:00 pm'
+    =check_box :availability, 'sunday_second'
     
-    %input{ :type=>"checkbox", :id => "sunday_third_checkbox" }
-    %label 3:00 PM to 6:00 PM
+    =label :availability, :sunday_third, '4:00 pm - 12:00 am'
+    =check_box :availability, 'sunday_third'
     
   %div= submit_tag 'Save'
   

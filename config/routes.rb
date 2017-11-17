@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resources :calendars
   resources :shifts
  #  resources :users
-  #resources :availabilities
+  resources :availabilities
  # resources :users
  # resources :sessions
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -24,12 +24,6 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :availabilities do
-    member do
-      get 'administrator'
-      get 'employee'
-    end
-  end
     
   resources :sessions, only: [:new, :create, :destroy]
   match '/signup', to: 'users#new', via: :get
