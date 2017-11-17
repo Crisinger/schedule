@@ -1,6 +1,10 @@
-class AvailabilityController < ApplicationController
+class AvailabilitiesController < ApplicationController
   before_action :set_current_user
   before_action :has_user, :only => [:new, :create]
+  
+  def user_params
+    params.require(:user).permit(:user_id, :user_first_name, :user_last_name, :email, :password, :password_confirmation, :user_administrator, :user_priority, :user_phone_number)
+  end
   
   protected
   def has_user
