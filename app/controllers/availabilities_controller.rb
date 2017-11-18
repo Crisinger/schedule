@@ -21,8 +21,7 @@ class AvailabilitiesController < ApplicationController
   end
   
   def show
-    id = params[:id]
-    @availability = Availability.find(id)
+    @availability = Availability.find_by_user_id(params[:id])
   end
   
   protected

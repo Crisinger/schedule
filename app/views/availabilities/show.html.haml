@@ -1,39 +1,53 @@
 -# app/views/availabilities/show.html.haml
 
-%h1 #{@current_user.user_first_name} #{@current_user.user_last_name}'s Availability
+%h1 #{@current_user.user_first_name} #{@current_user.user_last_name}'s availability
 
 %ul#details
   %li
-    :plain
-        Day         Shift   Available
-        Monday      1       =@current_user.availabilities.monday_first
-        Monday      2       =@current_user.availabilities.monday_second
-        Monday      3       =@current_user.availabilities.monday_third
-        
-        Tuesday      1       =@current_user.availabilities.tuesday_first
-        Tuesday      2       =@current_user.availabilities.tuesday_second
-        Tuesday      3       =@current_user.availabilities.tuesday_third_
+    Monday 12:00 AM - 8:00 AM:      #{@availability.monday_first}
+  %li
+    Monday 8:00 AM - 4:00 PM:       #{@availability.monday_second}
+  %li
+    Monday 4:00 PM - 12:00 AM: #{@availability.monday_third}
+  %li
+    Tuesday 12:00 AM - 8:00 AM: #{@availability.tuesday_first}
+  %li
+    Tuesday 8:00 AM - 4:00 PM: #{@availability.tuesday_second}
+  %li
+    Tuesday 4:00 PM - 12:00 AM: #{@availability.tuesday_third}
+  %li
+    Wednesday 12:00 AM - 8:00 AM: #{@availability.wednesday_first}
+  %li
+    Wednesday 8:00 AM - 4:00 PM: #{@availability.wednesday_second}
+  %li
+    Wednesday 4:00 PM - 12:00 AM: #{@availability.wednesday_third}
+  %li
+    Thursday 12:00 AM - 8:00 AM: #{@availability.thursday_first}
+  %li
+    Thursday 8:00 AM - 4:00 PM: #{@availability.thursday_second}
+  %li
+    Thursday 4:00 PM - 12:00 AM: #{@availability.thursday_third}
+  %li
+    Friday 12:00 AM - 8:00 AM: #{@availability.friday_first}
+  %li
+    Friday 8:00 AM - 4:00 PM: #{@availability.friday_second}
+  %li
+    Friday 4:00 PM - 12:00 AM: #{@availability.friday_third}
+  %li
+    Saturday 12:00 AM - 8:00 AM: #{@availability.saturday_first}
+  %li
+    Saturday 8:00 AM - 4:00 PM: #{@availability.saturday_second}
+  %li
+    Saturday 4:00 PM - 12:00 AM: #{@availability.saturday_third}
+  %li
+    Sunday 12:00 AM - 8:00 AM: #{@availability.sunday_first}
+  %li
+    Sunday 8:00 AM - 4:00 PM: #{@availability.sunday_second}
+  %li
+    Sunday 4:00 PM - 12:00 AM: #{@availability.sunday_third}
+   
 
-        Wednesday      1       =@current_user.availabilities.wednesday_first
-        Wednesday      2       =@current_user.availabilities.wednesday_second
-        Wednesday      3       =@current_user.availabilities.wednesday_third
-
-        Thursday      1       =@current_user.availabilities.tursday_first
-        Thursday      2       =@current_user.availabilities.tursday_second
-        Thursday      3       =@current_user.availabilities.tursday_third
-
-        Friday      1       =@current_user.availabilities.friday_first
-        Friday      2       =@current_user.availabilities.friday_second
-        Friday      3       =@current_user.availabilities.friday_third
-
-        Saturday      1       =@current_user.availabilities.saturday_first
-        Saturday      2       =@current_user.availabilities.saturday_second
-        Saturday      3       =@current_user.availabilities.saturday_third
-
-        Sunday      1       =@current_user.availabilities.sunday_first
-        Sunday      2       =@current_user.availabilities.sunday_second
-        Sunday      3       =@current_user.availabilities.sunday_third
 
 
 
-%div= link_to 'Cancel', employee_user_path
+%div= link_to 'Go back', employee_user_path
