@@ -9,7 +9,7 @@ class AvailabilitiesController < ApplicationController
   def create
       @availability = Availability.new(availabilty_params)
       #@availability = Availability.new()
-      @availability.user_id = @current_user.user_id
+      @availability.user_id = @current_user.id
       #@availability.monday_first_checkbox = @current_user. monday_first_checkbox
       if @availability.save
         flash[:notice] = "#{@current_user.user_first_name} #{@current_user.user_last_name}'s Availability was successfully created."
