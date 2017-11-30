@@ -4,6 +4,7 @@ Rails.application.routes.draw do
    
   resources :calendars
   resources :shifts
+  resources :schedules
  #  resources :users
   resources :availabilities
  # resources :users
