@@ -13,6 +13,7 @@
       %th Administrator Status
       %th User Priority
       %th More Info
+      %th Availability
   %tbody
     - @users.each do |user|
       %tr
@@ -24,6 +25,7 @@
         %td= user.user_administrator
         %td= user.user_priority
         %td= link_to "More about #{user.user_first_name}", user_path(user)
+        %td= link_to "#{user.user_first_name}'s availability",availability_path(user)
 
 %div= link_to 'Create New Account', new_user_path
 %div= link_to 'Main Menu', administrator_session_path
