@@ -163,5 +163,4 @@
       =select(:week, :sunday_third_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
       
   %div= submit_tag 'Save'
-  
--#= link_to 'Save and Return', user_path(@current_user)
+%div= link_to 'Main Menu', administrator_session_path(@current_user)
