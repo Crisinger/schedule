@@ -1,5 +1,5 @@
 class AvailabilitiesController < ApplicationController
-  before_action :set_current_user
+  before_action :set_current_user #, :only => [:new,:create]
   before_action :has_user, :only => [:new, :create]
   
   def availabilty_params
@@ -8,20 +8,35 @@ class AvailabilitiesController < ApplicationController
   
   def create
       @availability = Availability.new(availabilty_params)
-      #@availability = Availability.new()
-      @availability.user_id = @current_user.id
-      #@availability.monday_first_checkbox = @current_user. monday_first_checkbox
+      #@availability.user = @current_user
+      @availability.id = @current_user.id
+      #@availability.user.user_id = @current_user.user_id
+      #@availability.save
       if @availability.save
         flash[:notice] = "#{@current_user.user_first_name} #{@current_user.user_last_name}'s Availability was successfully created."
-        redirect_to employee_user_path(@current_user) and return
+        redirect_to employee_session_path(@current_user) and return
       else
-        flash[:notice] = "Something went wrong while trying to create availability. Please try again"
+        flash[:warning] = "Something went wrong while trying to create availability. Please try again"
         redirect_to new_availability_path and return
       end 
   end
   
   def show
-    @availability = Availability.find_by_user_id(params[:id])
+    if @user = User.find_by_user_id(params[:id])
+      flash[:notice] = "found user"
+    else
+      flash[:warning] = "could not find user"
+    end
+    if @availability = Availability.find_by_user_id(params[:id])
+      flash[:notice] = "Succesfully loaded availability"
+    else
+      flash[:warning] = "Could not load availability"
+      if @current_user.user_administrator == false
+        redirect_to employee_session_path(@current_user)
+      else
+        redirect_to administrator_session_path(@current_user)
+      end
+    end
   end
   
   protected

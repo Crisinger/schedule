@@ -1,6 +1,6 @@
 -# app/views/availabilities/show.html.haml
 
-%h1 #{@current_user.user_first_name} #{@current_user.user_last_name}'s availability
+%h1 #{@user.user_first_name} #{@user.user_last_name}'s availability
 
 %ul#details
   %li
@@ -48,6 +48,9 @@
    
 
 
-
-
-%div= link_to 'Go back', employee_user_path
+%div
+  -if @current_user.user_administrator == false
+    = link_to 'Go back', employee_session_path(@current_user)
+  -else
+    = link_to 'Go back to admin home page', administrator_session_path(@current_user)
+    
