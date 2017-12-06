@@ -12,4 +12,5 @@ describe User do
         it "should not fail because password length is greater or equal than 6" do
             User.new({:username => "selt", :password => '123456'}).save.should be_true
         end
+    end
 end
