@@ -40,7 +40,7 @@ class UsersController < ApplicationController
         flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully created."
         redirect_to administrator_user_path(@current_user) and return
       else
-        flash[:notice] = "Something went wrong while trying to create a new account. Please try again"
+        flash[:warning] = "Something went wrong while trying to create a new account. Please try again"
         redirect_to new_user_path(@user) and return
       end 
     end  
@@ -53,7 +53,7 @@ class UsersController < ApplicationController
       flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully updated."
       redirect_to administrator_user_path(@current_user)
     else
-      flash[:notice] = "Something happend while trying to update #{@user.user_first_name} #{@user.user_last_name}'s account."
+      flash[:warning] = "Something happend while trying to update #{@user.user_first_name} #{@user.user_last_name}'s account."
       redirect_to user_path(@user)
     end
   end
@@ -65,7 +65,7 @@ class UsersController < ApplicationController
       flash[:notice] = "#{@user.user_first_name} #{@user.user_last_name}'s account was successfully deleted."
       redirect_to administrator_user_path(@current_user)
     else
-      flash[:notice] = "Something happened while trying to delete #{@user.user_first_name} #{@user.user_last_name}'s account."
+      flash[:warning] = "Something happened while trying to delete #{@user.user_first_name} #{@user.user_last_name}'s account."
       redirect_to user_path(@user)
     end
   end

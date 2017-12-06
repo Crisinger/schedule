@@ -4,6 +4,12 @@
 
 %ul#details
   %li
+    availability current_user_id (debug only): #{@availability.current_user_id}
+  %li
+    user user_id (debug only): #{@user.user_id}
+  %li
+    User Priority Level: #{@user.user_priority}
+  %li
     Monday 12:00 AM - 8:00 AM: #{@availability.monday_first}
   %li
     Monday 8:00 AM - 4:00 PM: #{@availability.monday_second}
@@ -52,5 +58,5 @@
   -if @current_user.user_administrator == false
     = link_to 'Go back', employee_session_path(@current_user)
   -else
-    = link_to 'Go back to admin home page', administrator_session_path(@current_user)
+    = link_to 'Go back to All Employees', administrator_user_path(@current_user)
     
