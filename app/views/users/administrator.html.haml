@@ -10,7 +10,6 @@
       %th E-mail
       %th Phone Number
       %th User ID
-      %th ID (debug only)
       %th Administrator Status
       %th User Priority
       %th More Info
@@ -23,8 +22,12 @@
         %td= user.email
         %td= user.user_phone_number
         %td= user.user_id
-        %td= user.id
-        %td= user.user_administrator
+        
+        -if user.user_administrator
+          %td Administrator
+        -else
+          %td Employee
+          
         %td= user.user_priority
         %td= link_to "More about #{user.user_first_name}", user_path(user)
         -if user.user_administrator == false
