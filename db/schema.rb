@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171130211708) do
+ActiveRecord::Schema.define(version: 20171130231356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,53 @@ ActiveRecord::Schema.define(version: 20171130211708) do
     t.integer "user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token"
+  end
+
+  create_table "weeks", force: :cascade do |t|
+    t.integer "monday_first_employee", null: false
+    t.integer "monday_first_manager", null: false
+    t.integer "monday_second_employee", null: false
+    t.integer "monday_second_manager", null: false
+    t.integer "monday_third_employee", null: false
+    t.integer "monday_third_manager", null: false
+    t.integer "tuesday_first_employee", null: false
+    t.integer "tuesday_first_manager", null: false
+    t.integer "tuesday_second_employee", null: false
+    t.integer "tuesday_second_manager", null: false
+    t.integer "tuesday_third_employee", null: false
+    t.integer "tuesday_third_manager", null: false
+    t.integer "wednesday_first_employee", null: false
+    t.integer "wednesday_first_manager", null: false
+    t.integer "wednesday_second_employee", null: false
+    t.integer "wednesday_second_manager", null: false
+    t.integer "wednesday_third_employee", null: false
+    t.integer "wednesday_third_manager", null: false
+    t.integer "thursday_first_employee", null: false
+    t.integer "thursday_first_manager", null: false
+    t.integer "thursday_second_employee", null: false
+    t.integer "thursday_second_manager", null: false
+    t.integer "thursday_third_employee", null: false
+    t.integer "thursday_third_manager", null: false
+    t.integer "friday_first_employee", null: false
+    t.integer "friday_first_manager", null: false
+    t.integer "friday_second_employee", null: false
+    t.integer "friday_second_manager", null: false
+    t.integer "friday_third_employee", null: false
+    t.integer "friday_third_manager", null: false
+    t.integer "saturday_first_employee", null: false
+    t.integer "saturday_first_manager", null: false
+    t.integer "saturday_second_employee", null: false
+    t.integer "saturday_second_manager", null: false
+    t.integer "saturday_third_employee", null: false
+    t.integer "saturday_third_manager", null: false
+    t.integer "sunday_first_employee", null: false
+    t.integer "sunday_first_manager", null: false
+    t.integer "sunday_second_employee", null: false
+    t.integer "sunday_second_manager", null: false
+    t.integer "sunday_third_employee", null: false
+    t.integer "sunday_third_manager", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
