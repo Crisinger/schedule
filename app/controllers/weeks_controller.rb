@@ -19,6 +19,6 @@ class WeeksController < ApplicationController
   
   public
   def new
-      
+    
   end
 end
