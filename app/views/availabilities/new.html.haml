@@ -80,6 +80,10 @@
     =label :availability, :sunday_third, '4:00 pm - 12:00 am'
     =check_box :availability, 'sunday_third'
     
+  %h2 User ID
+  %fieldset
+    =label :availability, :current_user_id, @current_user.user_id
+    
   %div= submit_tag 'Save'
   
 -#= link_to 'Save and Return', user_path(@current_user)

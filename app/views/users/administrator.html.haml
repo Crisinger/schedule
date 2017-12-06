@@ -26,7 +26,7 @@
         %td= user.user_priority
         %td= link_to "More about #{user.user_first_name}", user_path(user)
         -if user.user_administrator == false
-          %td= link_to "#{user.user_first_name}'s availability",availability_path(user)
+          %td= link_to "#{user.user_first_name}'s availability", availability_path(user.user_id)
 
 %div= link_to 'Create New Account', new_user_path
 %div= link_to 'Main Menu', administrator_session_path
