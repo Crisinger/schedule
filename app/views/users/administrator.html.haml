@@ -10,8 +10,7 @@
       %th E-mail
       %th Phone Number
       %th User ID
-      %th Administrator Status
-      %th User Priority
+      %th Status
       %th More Info
       %th Availability
   %tbody
@@ -28,7 +27,6 @@
         -else
           %td Employee
           
-        %td= user.user_priority
         %td= link_to "More about #{user.user_first_name}", user_path(user)
         -if user.user_administrator == false
           %td= link_to "#{user.user_first_name}'s availability", availability_path(user.user_id)

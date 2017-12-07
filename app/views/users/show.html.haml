@@ -4,28 +4,25 @@
   
 %ul#details
   %li
-    User ID:
+    %b User ID:
     = @user.user_id
   %li
-    E-mail:
+    %b E-mail:
     = @user.email
   %li
-    First Name:
+    %b First Name:
     = @user.user_first_name
   %li
-    Last Name:
+    %b Last Name:
     = @user.user_last_name
   %li
-    Administrator Satus:
+    %b Status:
     -if @user.user_administrator
       Administrator
     -else
       Employee
   %li
-    User Priority:
-    = @user.user_priority
-  %li
-    Phone Number:
+    %b Phone Number:
     = @user.user_phone_number
 
 %div= link_to 'Edit', edit_user_path(@user)

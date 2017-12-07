@@ -72,7 +72,7 @@ class WeeksController < ApplicationController
       
       
       @availabilities.each do |availability|
-        @myUser = User.find_by_user_id(availability.user_id)
+        @myUser = User.find_by_user_id(availability.current_user_id)
         if availability.monday_first == true
           if @myUser.user_priority == 5
             @monday1M.push([@myUser.user_first_name + ' ' +  @myUser.user_last_name , availability.user_id])
