@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/home/ubuntu/workspace/schedule/spec/controllers/user_controller_spec.rb": [
+      "/home/ubuntu/workspace/schedule/spec/controllers/availability_controller_spec.rb": [
         1,
         null,
         1,
@@ -238,6 +238,9 @@
         null,
         1,
         1,
+        1,
+        null,
+        1,
         null,
         null,
         null,
@@ -253,6 +256,7 @@
         1,
         1,
         1,
+        null,
         null,
         null,
         null,
@@ -267,7 +271,87 @@
         1,
         null
       ],
+      "/home/ubuntu/workspace/schedule/app/helpers/availability_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/schedule/app/helpers/schedules_helper.rb": [
+        1,
+        null
+      ],
       "/home/ubuntu/workspace/schedule/app/helpers/user_helper.rb": [
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/schedule/spec/controllers/create_availabilities_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/ubuntu/workspace/schedule/spec/controllers/schedules_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/ubuntu/workspace/schedule/spec/controllers/user_controller_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/home/ubuntu/workspace/schedule/spec/helpers/availability_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/schedule/spec/helpers/create_availabilities_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null
+      ],
+      "/home/ubuntu/workspace/schedule/spec/helpers/schedules_helper_spec.rb": [
+        1,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        1,
         1,
         null
       ],
@@ -287,8 +371,25 @@
         1,
         1,
         null
+      ],
+      "/home/ubuntu/workspace/schedule/spec/models/availability_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/schedule/app/models/availability.rb": [
+        1,
+        1,
+        null
+      ],
+      "/home/ubuntu/workspace/schedule/app/models/application_record.rb": [
+        1,
+        1,
+        null
       ]
     },
-    "timestamp": 1510706180
+    "timestamp": 1512518892
   }
 }
