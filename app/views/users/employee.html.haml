@@ -17,4 +17,4 @@
         %td= user.email
         %td= user.user_phone_number
 
-%div= link_to 'Main Menu', employee_session_path
+%div= link_to 'Go Back', employee_session_path(@current_user)
