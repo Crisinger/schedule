@@ -7,115 +7,275 @@ class WeeksController < ApplicationController
   
   def show
     
-=begin
-    if @monday1M = User.find(@week.monday_first_manager)
-      @monday1M_name = @monday1M.user_first_name + " " + @monday1M.user_last_name
-    else
-      @monday1M_name = "NOT SCHEDULED"
-      redirect_to(week_path)
-    end
-=end
     if @week = Week.last
-      @monday1M = User.find(@week.monday_first_manager)
-      @monday1M_name = @monday1M.user_first_name + " " + @monday1M.user_last_name
-      @monday2M = User.find(@week.monday_second_manager)
-      @monday2M_name = @monday2M.user_first_name + " " + @monday2M.user_last_name    
-      @monday3M = User.find(@week.monday_third_manager)
-      @monday3M_name = @monday3M.user_first_name + " " + @monday3M.user_last_name
+      if @week.monday_first_manager != 0
+        @monday1M = User.find(@week.monday_first_manager)
+        @monday1M_name = @monday1M.user_first_name + " " + @monday1M.user_last_name
+      else
+        @monday1M_name = "NOT Assigned"
+      end
+      if @week.monday_second_manager != 0
+        @monday2M = User.find(@week.monday_second_manager)
+        @monday2M_name = @monday2M.user_first_name + " " + @monday2M.user_last_name
+      else
+        @monday2M_name = "NOT Assigned"
+      end
+      if @week.monday_third_manager != 0
+        @monday3M = User.find(@week.monday_third_manager)
+        @monday3M_name = @monday3M.user_first_name + " " + @monday3M.user_last_name
+      else
+        @monday3M_name = "NOT Assigned"
+      end
       
-      @tuesday1M = User.find(@week.tuesday_first_manager)
-      @tuesday1M_name = @tuesday1M.user_first_name + " " + @tuesday1M.user_last_name
-      @tuesday2M = User.find(@week.tuesday_second_manager)
-      @tuesday2M_name = @tuesday2M.user_first_name + " " + @tuesday2M.user_last_name    
-      @tuesday3M = User.find(@week.tuesday_third_manager)
-      @tuesday3M_name = @tuesday3M.user_first_name + " " + @tuesday3M.user_last_name
+      if @week.tuesday_first_manager != 0
+        @tuesday1M = User.find(@week.tuesday_first_manager)
+        @tuesday1M_name = @tuesday1M.user_first_name + " " + @tuesday1M.user_last_name
+      else
+        @tuesday1M_name = "NOT Assigned"
+      end
+      if @week.tuesday_second_manager != 0
+        @tuesday2M = User.find(@week.tuesday_second_manager)
+        @tuesday2M_name = @tuesday2M.user_first_name + " " + @tuesday2M.user_last_name
+      else
+        @tuesday2M_name = "NOT Assigned"
+      end
+      if @week.tuesday_third_manager != 0
+        @tuesday3M = User.find(@week.tuesday_third_manager)
+        @tuesday3M_name = @tuesday3M.user_first_name + " " + @tuesday3M.user_last_name
+      else
+        @tuesday3M_name = "NOT Assigned"
+      end
       
-      @wednesday1M = User.find(@week.wednesday_first_manager)
-      @wednesday1M_name = @wednesday1M.user_first_name + " " + @wednesday1M.user_last_name
-      @wednesday2M = User.find(@week.wednesday_second_manager)
-      @wednesday2M_name = @wednesday2M.user_first_name + " " + @wednesday2M.user_last_name    
-      @wednesday3M = User.find(@week.wednesday_third_manager)
-      @wednesday3M_name = @wednesday3M.user_first_name + " " + @wednesday3M.user_last_name
+      if @week.wednesday_first_manager != 0
+        @wednesday1M = User.find(@week.wednesday_first_manager)
+        @wednesday1M_name = @wednesday1M.user_first_name + " " + @wednesday1M.user_last_name
+      else
+        @wednesday1M_name = "NOT Assigned"
+      end
+      if @week.wednesday_second_manager != 0
+        @wednesday2M = User.find(@week.wednesday_second_manager)
+        @wednesday2M_name = @wednesday2M.user_first_name + " " + @wednesday2M.user_last_name
+      else
+        @wednesday2M_name = "NOT Assigned"
+      end
+      if @week.wednesday_third_manager != 0
+        @wednesday3M = User.find(@week.wednesday_third_manager)
+        @wednesday3M_name = @wednesday3M.user_first_name + " " + @wednesday3M.user_last_name
+      else
+        @wednesday3M_name = "NOT Assigned"
+      end
       
-      @thursday1M = User.find(@week.thursday_first_manager)
-      @thursday1M_name = @thursday1M.user_first_name + " " + @thursday1M.user_last_name
-      @thursday2M = User.find(@week.thursday_second_manager)
-      @thursday2M_name = @thursday2M.user_first_name + " " + @thursday2M.user_last_name    
-      @thursday3M = User.find(@week.thursday_third_manager)
-      @thursday3M_name = @thursday3M.user_first_name + " " + @thursday3M.user_last_name
+      if @week.thursday_first_manager != 0
+        @thursday1M = User.find(@week.thursday_first_manager)
+        @thursday1M_name = @thursday1M.user_first_name + " " + @thursday1M.user_last_name
+      else
+        @thursday1M_name = "NOT Assigned"
+      end
+      if @week.thursday_second_manager != 0
+        @thursday2M = User.find(@week.thursday_second_manager)
+        @thursday2M_name = @thursday2M.user_first_name + " " + @thursday2M.user_last_name
+      else
+        @thursday2M_name = "NOT Assigned"
+      end
+      if @week.thursday_third_manager != 0
+        @thursday3M = User.find(@week.thursday_third_manager)
+        @thursday3M_name = @thursday3M.user_first_name + " " + @thursday3M.user_last_name
+      else
+        @thursday3M_name = "NOT Assigned"
+      end
       
-      @friday1M = User.find(@week.friday_first_manager)
-      @friday1M_name = @friday1M.user_first_name + " " + @friday1M.user_last_name
-      @friday2M = User.find(@week.friday_second_manager)
-      @friday2M_name = @friday2M.user_first_name + " " + @friday2M.user_last_name    
-      @friday3M = User.find(@week.friday_third_manager)
-      @friday3M_name = @friday3M.user_first_name + " " + @friday3M.user_last_name
+      if @week.friday_first_manager != 0
+        @friday1M = User.find(@week.friday_first_manager)
+        @friday1M_name = @friday1M.user_first_name + " " + @friday1M.user_last_name
+      else
+        @friday1M_name = "NOT Assigned"
+      end
+      if @week.friday_second_manager != 0
+        @friday2M = User.find(@week.friday_second_manager)
+        @friday2M_name = @friday2M.user_first_name + " " + @friday2M.user_last_name
+      else
+        @friday2M_name = "NOT Assigned"
+      end
+      if @week.friday_third_manager != 0
+        @friday3M = User.find(@week.friday_third_manager)
+        @friday3M_name = @friday3M.user_first_name + " " + @friday3M.user_last_name
+      else
+        @friday3M_name = "NOT Assigned"
+      end
       
-      @saturday1M = User.find(@week.saturday_first_manager)
-      @saturday1M_name = @saturday1M.user_first_name + " " + @saturday1M.user_last_name
-      @saturday2M = User.find(@week.saturday_second_manager)
-      @saturday2M_name = @saturday2M.user_first_name + " " + @saturday2M.user_last_name    
-      @saturday3M = User.find(@week.saturday_third_manager)
-      @saturday3M_name = @saturday3M.user_first_name + " " + @saturday3M.user_last_name
+      if @week.saturday_first_manager != 0
+        @saturday1M = User.find(@week.saturday_first_manager)
+        @saturday1M_name = @saturday1M.user_first_name + " " + @saturday1M.user_last_name
+      else
+        @saturday1M_name = "NOT Assigned"
+      end
+      if @week.saturday_second_manager != 0
+        @saturday2M = User.find(@week.saturday_second_manager)
+        @saturday2M_name = @saturday2M.user_first_name + " " + @saturday2M.user_last_name
+      else
+        @saturday2M_name = "NOT Assigned"
+      end
+      if @week.saturday_third_manager != 0
+        @saturday3M = User.find(@week.saturday_third_manager)
+        @saturday3M_name = @saturday3M.user_first_name + " " + @saturday3M.user_last_name
+      else
+        @saturday3M_name = "NOT Assigned"
+      end
       
-      @sunday1M = User.find(@week.sunday_first_manager)
-      @sunday1M_name = @sunday1M.user_first_name + " " + @sunday1M.user_last_name
-      @sunday2M = User.find(@week.sunday_second_manager)
-      @sunday2M_name = @sunday2M.user_first_name + " " + @sunday2M.user_last_name    
-      @sunday3M = User.find(@week.sunday_third_manager)
-      @sunday3M_name = @sunday3M.user_first_name + " " + @sunday3M.user_last_name
+      if @week.sunday_first_manager != 0
+        @sunday1M = User.find(@week.sunday_first_manager)
+        @sunday1M_name = @sunday1M.user_first_name + " " + @sunday1M.user_last_name
+      else
+        @sunday1M_name = "NOT Assigned"
+      end
+      if @week.sunday_second_manager != 0
+        @sunday2M = User.find(@week.sunday_second_manager)
+        @sunday2M_name = @sunday2M.user_first_name + " " + @sunday2M.user_last_name
+      else
+        @sunday2M_name = "NOT Assigned"
+      end
+      if @week.sunday_third_manager != 0
+        @sunday3M = User.find(@week.sunday_third_manager)
+        @sunday3M_name = @sunday3M.user_first_name + " " + @sunday3M.user_last_name
+      else
+        @sunday3M_name = "NOT Assigned"
+      end
       
-  
-  
-  
-      @monday1E = User.find(@week.monday_first_employee)
-      @monday1E_name = @monday1E.user_first_name + " " + @monday1E.user_last_name
-      @monday2E = User.find(@week.monday_second_employee)
-      @monday2E_name = @monday2E.user_first_name + " " + @monday2E.user_last_name    
-      @monday3E = User.find(@week.monday_third_employee)
-      @monday3E_name = @monday3E.user_first_name + " " + @monday3E.user_last_name
+      if @week.monday_first_employee != 0
+        @monday1E = User.find(@week.monday_first_employee)
+        @monday1E_name = @monday1E.user_first_name + " " + @monday1E.user_last_name
+      else
+        @monday1E_name = "NOT Assigned"
+      end
+      if @week.monday_second_employee != 0
+        @monday2E = User.find(@week.monday_second_employee)
+        @monday2E_name = @monday2E.user_first_name + " " + @monday2E.user_last_name
+      else
+        @monday2E_name = "NOT Assigned"
+      end
+      if @week.monday_third_employee != 0
+        @monday3E = User.find(@week.monday_third_employee)
+        @monday3E_name = @monday3E.user_first_name + " " + @monday3E.user_last_name
+      else
+        @monday3E_name = "NOT Assigned"
+      end
+     
+     
       
-      @tuesday1E = User.find(@week.tuesday_first_employee)
-      @tuesday1E_name = @tuesday1E.user_first_name + " " + @tuesday1E.user_last_name
-      @tuesday2E = User.find(@week.tuesday_second_employee)
-      @tuesday2E_name = @tuesday2E.user_first_name + " " + @tuesday2E.user_last_name    
-      @tuesday3E = User.find(@week.tuesday_third_employee)
-      @tuesday3E_name = @tuesday3E.user_first_name + " " + @tuesday3E.user_last_name
+      if @week.tuesday_first_employee != 0
+        @tuesday1E = User.find(@week.tuesday_first_employee)
+        @tuesday1E_name = @tuesday1E.user_first_name + " " + @tuesday1E.user_last_name
+      else
+        @tuesday1E_name = "NOT Assigned"
+      end
+      if @week.tuesday_second_employee != 0
+        @tuesday2E = User.find(@week.tuesday_second_employee)
+        @tuesday2E_name = @tuesday2E.user_first_name + " " + @tuesday2E.user_last_name
+      else
+        @tuesday2E_name = "NOT Assigned"
+      end
+      if @week.tuesday_third_employee != 0
+        @tuesday3E = User.find(@week.tuesday_third_employee)
+        @tuesday3E_name = @tuesday3E.user_first_name + " " + @tuesday3E.user_last_name
+      else
+        @tuesday3E_name = "NOT Assigned"
+      end
       
-      @wednesday1E = User.find(@week.wednesday_first_employee)
-      @wednesday1E_name = @wednesday1E.user_first_name + " " + @wednesday1E.user_last_name
-      @wednesday2E = User.find(@week.wednesday_second_employee)
-      @wednesday2E_name = @wednesday2E.user_first_name + " " + @wednesday2E.user_last_name    
-      @wednesday3E = User.find(@week.wednesday_third_employee)
-      @wednesday3E_name = @wednesday3E.user_first_name + " " + @wednesday3E.user_last_name
+      if @week.wednesday_first_employee != 0
+        @wednesday1E = User.find(@week.wednesday_first_employee)
+        @wednesday1E_name = @wednesday1E.user_first_name + " " + @wednesday1E.user_last_name
+      else
+        @wednesday1E_name = "NOT Assigned"
+      end
+      if @week.wednesday_second_employee != 0
+        @wednesday2E = User.find(@week.wednesday_second_employee)
+        @wednesday2E_name = @wednesday2E.user_first_name + " " + @wednesday2E.user_last_name
+      else
+        @wednesday2E_name = "NOT Assigned"
+      end
+      if @week.wednesday_third_employee != 0
+        @wednesday3E = User.find(@week.wednesday_third_employee)
+        @wednesday3E_name = @wednesday3E.user_first_name + " " + @wednesday3E.user_last_name
+      else
+        @wednesday3E_name = "NOT Assigned"
+      end
       
-      @thursday1E = User.find(@week.thursday_first_employee)
-      @thursday1E_name = @thursday1E.user_first_name + " " + @thursday1E.user_last_name
-      @thursday2E = User.find(@week.thursday_second_employee)
-      @thursday2E_name = @thursday2E.user_first_name + " " + @thursday2E.user_last_name    
-      @thursday3E = User.find(@week.thursday_third_employee)
-      @thursday3E_name = @thursday3E.user_first_name + " " + @thursday3E.user_last_name
+      if @week.thursday_first_employee != 0
+        @thursday1E = User.find(@week.thursday_first_employee)
+        @thursday1E_name = @thursday1E.user_first_name + " " + @thursday1E.user_last_name
+      else
+        @thursday1E_name = "NOT Assigned"
+      end
+      if @week.thursday_second_employee != 0
+        @thursday2E = User.find(@week.thursday_second_employee)
+        @thursday2E_name = @thursday2E.user_first_name + " " + @thursday2E.user_last_name
+      else
+        @thursday2E_name = "NOT Assigned"
+      end
+      if @week.thursday_third_employee != 0
+        @thursday3E = User.find(@week.thursday_third_employee)
+        @thursday3E_name = @thursday3E.user_first_name + " " + @thursday3E.user_last_name
+      else
+        @thursday3E_name = "NOT Assigned"
+      end
       
-      @friday1E = User.find(@week.friday_first_employee)
-      @friday1E_name = @friday1E.user_first_name + " " + @friday1E.user_last_name
-      @friday2E = User.find(@week.friday_second_employee)
-      @friday2E_name = @friday2E.user_first_name + " " + @friday2E.user_last_name    
-      @friday3E = User.find(@week.friday_third_employee)
-      @friday3E_name = @friday3E.user_first_name + " " + @friday3E.user_last_name
+      if @week.friday_first_employee != 0
+        @friday1E = User.find(@week.friday_first_employee)
+        @friday1E_name = @friday1E.user_first_name + " " + @friday1E.user_last_name
+      else
+        @friday1E_name = "NOT Assigned"
+      end
+      if @week.friday_second_employee != 0
+        @friday2E = User.find(@week.friday_second_employee)
+        @friday2E_name = @friday2E.user_first_name + " " + @friday2E.user_last_name
+      else
+        @friday2E_name = "NOT Assigned"
+      end
+      if @week.friday_third_employee != 0
+        @friday3E = User.find(@week.friday_third_employee)
+        @friday3E_name = @friday3E.user_first_name + " " + @friday3E.user_last_name
+      else
+        @friday3E_name = "NOT Assigned"
+      end
       
-      @saturday1E = User.find(@week.saturday_first_employee)
-      @saturday1E_name = @saturday1E.user_first_name + " " + @saturday1E.user_last_name
-      @saturday2E = User.find(@week.saturday_second_employee)
-      @saturday2E_name = @saturday2E.user_first_name + " " + @saturday2E.user_last_name    
-      @saturday3E = User.find(@week.saturday_third_employee)
-      @saturday3E_name = @saturday3E.user_first_name + " " + @saturday3E.user_last_name
+      if @week.saturday_first_employee != 0
+        @saturday1E = User.find(@week.saturday_first_employee)
+        @saturday1E_name = @saturday1E.user_first_name + " " + @saturday1E.user_last_name
+      else
+        @saturday1E_name = "NOT Assigned"
+      end
+      if @week.saturday_second_employee != 0
+        @saturday2E = User.find(@week.saturday_second_employee)
+        @saturday2E_name = @saturday2E.user_first_name + " " + @saturday2E.user_last_name
+      else
+        @saturday2E_name = "NOT Assigned"
+      end
+      if @week.saturday_third_employee != 0
+        @saturday3E = User.find(@week.saturday_third_employee)
+        @saturday3E_name = @saturday3E.user_first_name + " " + @saturday3E.user_last_name
+      else
+        @saturday3E_name = "NOT Assigned"
+      end
       
-      @sunday1E = User.find(@week.sunday_first_employee)
-      @sunday1E_name = @sunday1E.user_first_name + " " + @sunday1E.user_last_name
-      @sunday2E = User.find(@week.sunday_second_employee)
-      @sunday2E_name = @sunday2E.user_first_name + " " + @sunday2E.user_last_name    
-      @sunday3E = User.find(@week.sunday_third_employee)
-      @sunday3E_name = @sunday3E.user_first_name + " " + @sunday3E.user_last_name
+      if @week.sunday_first_employee != 0
+        @sunday1E = User.find(@week.sunday_first_employee)
+        @sunday1E_name = @sunday1E.user_first_name + " " + @sunday1E.user_last_name
+      else
+        @sunday1E_name = "NOT Assigned"
+      end
+      if @week.sunday_second_employee != 0
+        @sunday2E = User.find(@week.sunday_second_employee)
+        @sunday2E_name = @sunday2E.user_first_name + " " + @sunday2E.user_last_name
+      else
+        @sunday2E_name = "NOT Assigned"
+      end
+      if @week.sunday_third_employee != 0
+        @sunday3E = User.find(@week.sunday_third_employee)
+        @sunday3E_name = @sunday3E.user_first_name + " " + @sunday3E.user_last_name
+      else
+        @sunday3E_name = "NOT Assigned"
+      end
+      
     else
       flash[:warning] = "No Schedules Exist"
       redirect_to administrator_session_path(@current_user) and return
