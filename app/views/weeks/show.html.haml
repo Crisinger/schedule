@@ -1,0 +1,187 @@
+-# app/views/weeks/show.haml
+
+%h1 Current Schedule
+
+-if @current_user.user_administrator
+  %div= link_to 'Go Back', administrator_session_path(@current_user)
+-else
+  %div= link_to 'Go Back', employee_session_path(@current_user)
+  
+%h2 Manager Schedule
+
+%h4 Monday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@monday1M_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@monday2M_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@monday3M_name}
+    
+%h4 Tuesday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@tuesday1M_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@tuesday2M_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@tuesday3M_name}
+    
+%h4 Wednesday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@wednesday1M_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@wednesday2M_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@wednesday3M_name}
+    
+%h4 Thursday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@thursday1M_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@thursday2M_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@thursday3M_name}
+    
+%h4 Friday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@friday1M_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@friday2M_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@friday3M_name}
+    
+%h4 Saturday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@saturday1M_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@saturday2M_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@saturday3M_name}
+    
+%h4 Sunday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@sunday1M_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@sunday2M_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@sunday3M_name}
+    
+%hr
+
+%h2 Employee Schedule
+
+%h4 Monday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@monday1E_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@monday2E_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@monday3E_name}
+    
+%h4 Tuesday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@tuesday1E_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@tuesday2E_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@tuesday3E_name}
+    
+%h4 Wednesday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@wednesday1E_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@wednesday2E_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@wednesday3E_name}
+    
+%h4 Thursday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@thursday1E_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@thursday2E_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@thursday3E_name}
+    
+%h4 Friday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@friday1E_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@friday2E_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@friday3E_name}
+    
+%h4 Saturday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@saturday1E_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@saturday2E_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@saturday3E_name}
+    
+%h4 Sunday
+%ul#details
+  %li
+    12:00 AM - 8:00 AM: 
+    %b #{@sunday1E_name}
+  %li
+    8:00 AM - 4:00 PM: 
+    %b #{@sunday2E_name}
+  %li
+    4:00 PM - 12:00 AM: 
+    %b #{@sunday3E_name}
+    
+-if @current_user.user_administrator
+  %div= link_to 'Go Back', administrator_session_path(@current_user)
+-else
+  %div= link_to 'Go Back', employee_session_path(@current_user)

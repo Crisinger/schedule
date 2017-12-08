@@ -1,137 +1,183 @@
 -# app/views/availabilities/show.html.haml
 
-%h1 #{@user.user_first_name} #{@user.user_last_name}'s availability
+%h1 '#{@user.user_first_name} #{@user.user_last_name}' Availability
 
-%ul#details
-  %li
-    User ID: #{@user.user_id}
-  %li
-    User Priority Level: #{@user.user_priority}
-  %li
-  
+%div
+  -if !(@current_user.user_administrator)
+    = link_to 'Go back', employee_session_path(@current_user)
+  -else
+    = link_to 'Go back to All Employees', administrator_user_path(@current_user)
+    
+    
+User ID:
+%b #{@user.user_id}
+    
+%h3 Monday
+%ul#details  
   %li
     -if @availability.monday_first
-      Monday 12:00 AM - 8:00 AM: Available
+      12:00 AM - 8:00 AM:
+      %b Available
     -else
-      Monday 12:00 AM - 8:00 AM: NOT Available
+      12:00 AM - 8:00 AM:
+      %b NOT Available
   %li
     -if @availability.monday_second
-      Monday 8:00 AM - 4:00 PM: Available
+      8:00 AM - 4:00 PM:
+      %b Available
     -else
-      Monday 8:00 AM - 4:00 PM: NOT Available
+      8:00 AM - 4:00 PM:
+      %b NOT Available
   %li
     -if @availability.monday_third
-      Monday 4:00 PM - 12:00 AM: Available
+      4:00 PM - 12:00 AM:
+      %b Available
     -else
-      Monday 4:00 PM - 12:00 AM: NOT Available
+      4:00 PM - 12:00 AM:
+      %b NOT Available
 
-  %li
-  
+%h3 Tuesday
+%ul#details  
   %li
     -if @availability.tuesday_first
-      Tuesday 12:00 AM - 8:00 AM: Available
+      12:00 AM - 8:00 AM:
+      %b Available
     -else
-      Tuesday 12:00 AM - 8:00 AM: NOT Available
+      12:00 AM - 8:00 AM:
+      %b NOT Available
   %li
     -if @availability.tuesday_second
-      Tuesday 8:00 AM - 4:00 PM: Available
+      8:00 AM - 4:00 PM:
+      %b Available
     -else
-      Tuesday 8:00 AM - 4:00 PM: NOT Available
+      8:00 AM - 4:00 PM:
+      %b NOT Available
   %li
     -if @availability.tuesday_third
-      Tuesday 4:00 PM - 12:00 AM: Available
+      4:00 PM - 12:00 AM:
+      %b Available
     -else
-      Tuesday 4:00 PM - 12:00 AM: NOT Available
-      
-  %li
-  
+      4:00 PM - 12:00 AM:
+      %b NOT Available
+   
+%h3 Wednesday
+%ul#details
   %li
     -if @availability.wednesday_first 
-      Wednesday 12:00 AM - 8:00 AM: Available
+      12:00 AM - 8:00 AM:
+      %b Available
     -else
-      Wednesday 12:00 AM - 8:00 AM: NOT Available
+      12:00 AM - 8:00 AM:
+      %b NOT Available
   %li
     -if @availability.wednesday_second 
-      Wednesday 8:00 AM - 4:00 PM: Available
+      8:00 AM - 4:00 PM:
+      %b Available
     -else
-      Wednesday 8:00 AM - 4:00 PM: NOT Available
+      8:00 AM - 4:00 PM:
+      %b NOT Available
   %li
     -if @availability.wednesday_third 
-      Wednesday 4:00 PM - 12:00 AM: Available
+      4:00 PM - 12:00 AM:
+      %b Available
     -else
-      Wednesday 4:00 PM - 12:00 AM: NOT Available
+      4:00 PM - 12:00 AM:
+      %b NOT Available
 
-  %li
-  
+%h3 Thursday
+%ul#details
   %li
     -if @availability.thursday_first 
-      Thursday 12:00 AM - 8:00 AM: Available
+      12:00 AM - 8:00 AM:
+      %b Available
     -else
-      Thursday 12:00 AM - 8:00 AM: NOT Available
+      12:00 AM - 8:00 AM:
+      %b NOT Available
   %li
     -if @availability.thursday_second 
-      Thursday 8:00 AM - 4:00 PM: Available
+      8:00 AM - 4:00 PM:
+      %b Available
     -else
-      Thursday 8:00 AM - 4:00 PM: NOT Available
+      8:00 AM - 4:00 PM:
+      %b NOT Available
   %li
     -if @availability.thursday_third 
-      Thursday 4:00 PM - 12:00 AM: Available
+      4:00 PM - 12:00 AM:
+      %b Available
     -else
-      Thursday 4:00 PM - 12:00 AM: NOT Available
+      Thursday 4:00 PM - 12:00 AM:
+      %b NOT Available
 
-  %li
-  
+%h3 Friday
+%ul#details
   %li
     -if @availability.friday_first 
-      Friday 12:00 AM - 8:00 AM: Available
+      12:00 AM - 8:00 AM:
+      %b Available
     -else
-      Friday 12:00 AM - 8:00 AM: NOT Available
+      12:00 AM - 8:00 AM:
+      %b NOT Available
   %li
     -if @availability.friday_second 
-      Friday 8:00 AM - 4:00 PM: Available
+      8:00 AM - 4:00 PM:
+      %b Available
     -else
-      Friday 8:00 AM - 4:00 PM: NOT Available
+      8:00 AM - 4:00 PM:
+      %b NOT Available
   %li
     -if @availability.friday_third 
-      Friday 4:00 PM - 12:00 AM: Available
+      4:00 PM - 12:00 AM:
+      %b Available
     -else
-      Friday 4:00 PM - 12:00 AM: NOT Available
-      
-  %li
-  
+      4:00 PM - 12:00 AM:
+      %b NOT Available
+ 
+%h3 Saturday     
+%ul#details
   %li
     -if @availability.saturday_first 
-      Saturday 12:00 AM - 8:00 AM: Available
+      12:00 AM - 8:00 AM:
+      %b Available
     -else
-      Saturday 12:00 AM - 8:00 AM: NOT Available
+      12:00 AM - 8:00 AM:
+      %b NOT Available
   %li
     -if @availability.saturday_second 
-      Saturday 8:00 AM - 4:00 PM: Available
+      8:00 AM - 4:00 PM:
+      %b Available
     -else
-      Saturday 8:00 AM - 4:00 PM: NOT Available
+      8:00 AM - 4:00 PM:
+      %b NOT Available
   %li
     -if @availability.saturday_third 
-      Saturday 4:00 PM - 12:00 AM: Available
+      4:00 PM - 12:00 AM:
+      %b Available
     -else
-      Saturday 4:00 PM - 12:00 AM: NOT Available
+      4:00 PM - 12:00 AM:
+      %b NOT Available
       
-  %li
-  
+%ul#details
   %li
     -if @availability.sunday_first 
-      Sunday 12:00 AM - 8:00 AM: Available
+      12:00 AM - 8:00 AM:
+      %b Available
     -else
-      Sunday 12:00 AM - 8:00 AM: NOT Available
+      12:00 AM - 8:00 AM:
+      %b NOT Available
   %li
     -if @availability.sunday_second 
-      Sunday 8:00 AM - 4:00 PM: Available
+      8:00 AM - 4:00 PM:
+      %b Available
     -else
-      Sunday 8:00 AM - 4:00 PM: NOT Available
+      8:00 AM - 4:00 PM:
+      %b NOT Available
   %li
     -if @availability.sunday_third 
-      Sunday 4:00 PM - 12:00 AM: Available
+      4:00 PM - 12:00 AM:
+      %b Available
     -else
-      Sunday 4:00 PM - 12:00 AM: NOT Available
+      4:00 PM - 12:00 AM:
+      %b NOT Available
 
 %div
   -if !(@current_user.user_administrator)

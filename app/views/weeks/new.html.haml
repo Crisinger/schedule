@@ -1,166 +1,168 @@
 -# app/views/weeks/new.html.haml
 %h1 week edited by #{@current_user.user_first_name} #{@current_user.user_last_name}
 
+%div= link_to 'Go Back', administrator_session_path(@current_user)
 = form_tag weeks_path, :method => 'post' do
   %h2 Manager:
   %fieldset
     %h2 Monday 
     %fieldset
       =label :week, :monday_first_manager, '12:00 am - 8:00 am'
-      =select(:week, :monday_first_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :monday_first_manager, options_for_select(@monday1M))
+      -#=collection_select(:week, :populate, @users, :user_first_name, prompt: true)
       
       =label :week, :monday_second_manager, '8:00 am - 4:00 pm'
-      =select(:week, :monday_second_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :monday_second_manager, options_for_select(@monday2M))
       
       =label :week, :monday_third_manager, '4:00 pm - 12:00 am'
-      =select(:week, :monday_third_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :monday_third_manager, options_for_select(@monday3M))
     
     
     %h2 Tuesday
     %fieldset
       =label :week, :tuesday_first_manager, '12:00 am - 8:00 am'
-      =select(:week, :tuesday_first_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :tuesday_first_manager, options_for_select(@tuesday1M))
       
       =label :week, :tuesday_second_manager, '8:00 am - 4:00 pm'
-      =select(:week, :tuesday_second_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :tuesday_second_manager, options_for_select(@tuesday2M))
       
       =label :week, :tuesday_third_manager, '4:00 pm - 12:00 am'
-      =select(:week, :tuesday_third_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :tuesday_third_manager, options_for_select(@tuesday3M))
       
     %h2 Wednesday
     %fieldset
       =label :week, :wednesday_first_manager, '12:00 am - 8:00 am'
-      =select(:week, :wednesday_first_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :wednesday_first_manager, options_for_select(@wednesday1M))
       
       =label :week, :wednesday_second_manager, '8:00 am - 4:00 pm'
-      =select(:week, :wednesday_second_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :wednesday_second_manager, options_for_select(@wednesday2M))
       
       =label :week, :wednesday_third_manager, '4:00 pm - 12:00 am'
-      =select(:week, :wednesday_third_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :wednesday_third_manager, options_for_select(@wednesday3M))
       
     %h2 Thursday
     %fieldset
       =label :week, :thursday_first_manager, '12:00 am - 8:00 am'
-      =select(:week, :thursday_first_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :thursday_first_manager, options_for_select(@thursday1M))
       
       =label :week, :thursday_second_manager, '8:00 am - 4:00 pm'
-      =select(:week, :thursday_second_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :thursday_second_manager, options_for_select(@thursday2M))
 
       =label :week, :thursday_third_manager, '4:00 pm - 12:00 am'
-      =select(:week, :thursday_third_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :thursday_third_manager, options_for_select(@thursday3M))
       
     %h2 Friday
     %fieldset
       =label :week, :friday_first_manager, '12:00 am - 8:00 am'
-      =select(:week, :friday_first_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :friday_first_manager, options_for_select(@friday1M))
       
       =label :week, :friday_second_manager, '8:00 am - 4:00 pm'
-      =select(:week, :friday_second_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :friday_second_manager, options_for_select(@friday2M))
       
       =label :week, :friday_third_manager, '4:00 pm - 12:00 am'
-      =select(:week, :friday_third_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :friday_third_manager, options_for_select(@friday3M))
       
     %h2 Saturday
     %fieldset
       =label :week, :saturday_first_manager, '12:00 am - 8:00 am'
-      =select(:week, :saturday_first_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :saturday_first_manager, options_for_select(@saturday1M))
       
       =label :week, :saturday_second_manager, '8:00 am - 4:00 pm'
-      =select(:week, :saturday_second_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :saturday_second_manager, options_for_select(@saturday2M))
       
       =label :week, :saturday_third_manager, '4:00 pm - 12:00 am'
-      =select(:week, :saturday_third_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :saturday_third_manager, options_for_select(@saturday3M))
       
     %h2 Sunday
     %fieldset
       =label :week, :sunday_first_manager, '12:00 am - 8:00 am'
-      =select(:week, :sunday_first_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :sunday_first_manager, options_for_select(@sunday1M))
       
       =label :week, :sunday_second_manager, '8:00 am - 4:00 pm'
-      =select(:week, :sunday_second_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :sunday_second_manager, options_for_select(@sunday2M))
       
       =label :week, :sunday_third_manager, '4:00 pm - 12:00 am'
-      =select(:week, :sunday_third_manager, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :sunday_third_manager, options_for_select(@sunday3M))
       
   %h2 Employees:
   %fieldset
     %h2 Monday 
     %fieldset
       =label :week, :monday_first_employee, '12:00 am - 8:00 am'
-      =select(:week, :monday_first_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :monday_first_employee, options_for_select(@monday1E))
       
       =label :week, :monday_second_employee, '8:00 am - 4:00 pm'
-      =select(:week, :monday_second_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :monday_second_employee, options_for_select(@monday2E))
       
       =label :week, :monday_third_employee, '4:00 pm - 12:00 am'
-      =select(:week, :monday_third_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :monday_third_employee, options_for_select(@monday3E))
     
     
     %h2 Tuesday
     %fieldset
       =label :week, :tuesday_first_employee, '12:00 am - 8:00 am'
-      =select(:week, :tuesday_first_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :tuesday_first_employee, options_for_select(@tuesday1E))
       
       =label :week, :tuesday_second_employee, '8:00 am - 4:00 pm'
-      =select(:week, :tuesday_second_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :tuesday_second_employee, options_for_select(@tuesday2E))
       
       =label :week, :tuesday_third_employee, '4:00 pm - 12:00 am'
-      =select(:week, :tuesday_third_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :tuesday_third_employee, options_for_select(@tuesday3E))
       
     %h2 Wednesday
     %fieldset
       =label :week, :wednesday_first_employee, '12:00 am - 8:00 am'
-      =select(:week, :wednesday_first_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :wednesday_first_employee, options_for_select(@wednesday1E))
       
       =label :week, :wednesday_second_employee, '8:00 am - 4:00 pm'
-      =select(:week, :wednesday_second_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :wednesday_second_employee, options_for_select(@wednesday2E))
       
       =label :week, :wednesday_third_employee, '4:00 pm - 12:00 am'
-      =select(:week, :wednesday_third_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :wednesday_third_employee, options_for_select(@wednesday3E))
       
     %h2 Thursday
     %fieldset
       =label :week, :thursday_first_employee, '12:00 am - 8:00 am'
-      =select(:week, :thursday_first_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :thursday_first_employee, options_for_select(@thursday1E))
       
       =label :week, :thursday_second_employee, '8:00 am - 4:00 pm'
-      =select(:week, :thursday_second_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :thursday_second_employee, options_for_select(@thursday2E))
 
       =label :week, :thursday_third_employee, '4:00 pm - 12:00 am'
-      =select(:week, :thursday_third_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :thursday_third_employee, options_for_select(@thursday3E))
       
     %h2 Friday
     %fieldset
       =label :week, :friday_first_employee, '12:00 am - 8:00 am'
-      =select(:week, :friday_first_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :friday_first_employee, options_for_select(@friday1E))
       
       =label :week, :friday_second_employee, '8:00 am - 4:00 pm'
-      =select(:week, :friday_second_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :friday_second_employee, options_for_select(@friday2E))
       
       =label :week, :friday_third_employee, '4:00 pm - 12:00 am'
-      =select(:week, :friday_third_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :friday_third_employee, options_for_select(@friday3E))
       
     %h2 Saturday
     %fieldset
       =label :week, :saturday_first_employee, '12:00 am - 8:00 am'
-      =select(:week, :saturday_first_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :saturday_first_employee, options_for_select(@saturday1E))
       
       =label :week, :saturday_second_employee, '8:00 am - 4:00 pm'
-      =select(:week, :saturday_second_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :saturday_second_employee, options_for_select(@saturday2E))
       
       =label :week, :saturday_third_employee, '4:00 pm - 12:00 am'
-      =select(:week, :saturday_third_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :saturday_third_employee, options_for_select(@saturday3E))
       
     %h2 Sunday
     %fieldset
       =label :week, :sunday_first_employee, '12:00 am - 8:00 am'
-      =select(:week, :sunday_first_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :sunday_first_employee, options_for_select(@sunday1E))
       
       =label :week, :sunday_second_employee, '8:00 am - 4:00 pm'
-      =select(:week, :sunday_second_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :sunday_second_employee, options_for_select(@sunday2E))
       
       =label :week, :sunday_third_employee, '4:00 pm - 12:00 am'
-      =select(:week, :sunday_third_employee, options_for_select([["employee 1", "1"], ["employee 2", "2"]]))
+      =select(:week, :sunday_third_employee, options_for_select(@sunday3E))
       
   %div= submit_tag 'Save'
-%div= link_to 'Main Menu', administrator_session_path(@current_user)
+%div= link_to 'Go Back', administrator_session_path(@current_user)
