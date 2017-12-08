@@ -1,6 +1,7 @@
 -# app/views/weeks/new.html.haml
 %h1 week edited by #{@current_user.user_first_name} #{@current_user.user_last_name}
 
+%div= link_to 'Go Back', administrator_session_path(@current_user)
 = form_tag weeks_path, :method => 'post' do
   %h2 Manager:
   %fieldset
@@ -164,4 +165,4 @@
       =select(:week, :sunday_third_employee, options_for_select(@sunday3E))
       
   %div= submit_tag 'Save'
-%div= link_to 'Main Menu', administrator_session_path(@current_user)
+%div= link_to 'Go Back', administrator_session_path(@current_user)

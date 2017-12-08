@@ -8,7 +8,7 @@ class AvailabilitiesController < ApplicationController
   
   def create
       @availability = Availability.new(availabilty_params)
-      #@availability.id = @current_user.id
+      
       @availability.user_id = @current_user.id
       @availability.current_user_id = @current_user.user_id
 
@@ -24,9 +24,7 @@ class AvailabilitiesController < ApplicationController
   def show
     if @current_user.user_administrator == false
       if @user = User.find_by_user_id(@current_user.user_id)
-        #flash[:notice] = "found user"
         if @availability = Availability.find_by_current_user_id(@current_user.user_id)
-          #flash[:notice] = "Succesfully loaded availability"
         else
           flash[:warning] = "Could not load availability"
           redirect_to employee_session_path(@current_user)
@@ -37,9 +35,7 @@ class AvailabilitiesController < ApplicationController
     else
       id = params[:id]
       if @user = User.find_by_user_id(id)
-        #flash[:notice] = "found user"
         if @availability = Availability.find_by_current_user_id(@user.user_id)
-          #flash[:notice] = "Succesfully loaded availability"
         else
           flash[:warning] = "Could not load availability"
           redirect_to administrator_user_path(@current_user)
@@ -48,27 +44,6 @@ class AvailabilitiesController < ApplicationController
         flash[:warning] = "could not find user"
       end
     end
-
-=begin   
-    if @current_user.user_administrator == false
-      @availability = Availability.find_by_current_user_id(@current_user.user_id)
-    else
-      @availability = Availability.find_by_current_user_id(@user.user_id)
-    end
-=end
-    
-=begin
-    if @availability = Availability.find_by_user_id(@user.user_id)
-      flash[:notice] = "Succesfully loaded availability"
-    else
-      flash[:warning] = "Could not load availability"
-      if @current_user.user_administrator == false
-        redirect_to employee_session_path(@current_user)
-      else
-        redirect_to administrator_user_path(@current_user)
-      end
-    end
-=end
   end
   
   protected
