@@ -161,6 +161,4 @@ availabilities = [{:user_id => 1, :current_user_id => 101, :monday_first => true
                   {:user_id => 112, :current_user_id => 3, :monday_first => false, :monday_second => false, :monday_third => true, :tuesday_first => false, :tuesday_second => true, :tuesday_third => true, :wednesday_first => false, :wednesday_second => false, :wednesday_third => true, :thursday_first => false, :thursday_second => false, :thursday_third => true, :friday_first => false, :friday_second => false, :friday_third => true, :saturday_first => false, :saturday_second => false, :saturday_third => true, :sunday_first => false, :sunday_second => false, :sunday_third => true}
 ]
 
-availabilities.each do |availability|
-  Availability.create!(availability)
-end
+
