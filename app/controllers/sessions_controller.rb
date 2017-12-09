@@ -10,20 +10,21 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_email(params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password]) && user.user_administrator == true
-      cookies.permanent[:session_token]= user.session_token
-      flash[:notice]= 'You Have Succesfully Logged in'
-      redirect_to administrator_session_path(user) and return
-    elsif user && user.authenticate(params[:session][:password]) && user.user_administrator == false
-      cookies.permanent[:session_token]= user.session_token
-      flash[:notice]= 'You Have Succesfully Logged in'
-      redirect_to employee_session_path(user) and return
-    elsif !user
-      flash[:warning] = 'Invalid email'
-      redirect_to login_path and return
-    else !user
-      flash[:warning] = 'Invalid password'
+    if user = User.find_by_email(params[:session][:email].downcase)
+      if user && user.authenticate(params[:session][:password]) && user.user_administrator == true
+        cookies.permanent[:session_token]= user.session_token
+        flash[:notice]= 'You Have Succesfully Logged in'
+        redirect_to administrator_session_path(user) and return
+      elsif user && user.authenticate(params[:session][:password]) && user.user_administrator == false
+        cookies.permanent[:session_token]= user.session_token
+        flash[:notice]= 'You Have Succesfully Logged in'
+        redirect_to employee_session_path(user) and return
+      else
+        flash[:warning] = 'Invalid Password'
+        redirect_to login_path and return
+      end
+    else
+      flash[:warning] = 'Invalid Email'
       redirect_to login_path and return
     end
   end
