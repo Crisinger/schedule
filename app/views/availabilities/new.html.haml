@@ -1,7 +1,11 @@
 -# app/views/availability/new.html.haml
-%h1 #{@current_user.user_first_name} #{@current_user.user_last_name}'s Weekly Availability Selection
+%h1 '#{@current_user.user_first_name} #{@current_user.user_last_name}' Weekly Availability Selection
 
-%div= link_to 'Go Back', employee_session_path(@current_user)
+-if !(@current_user.user_administrator)
+  = link_to 'Go back', employee_session_path(@current_user)
+-else
+  = link_to 'Go back', administrator_session_path(@current_user)
+    
 
 = form_tag availabilities_path, :method => 'post' do
   %h2 Monday
@@ -88,4 +92,8 @@
     
   %div= submit_tag 'Save'
   
-%div= link_to 'Go Back', employee_session_path(@current_user)
+-if !(@current_user.user_administrator)
+  = link_to 'Go back', employee_session_path(@current_user)
+-else
+  = link_to 'Go back', administrator_session_path(@current_user)
+    
