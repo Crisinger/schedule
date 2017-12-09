@@ -121,7 +121,8 @@ shifts.each do |shift|
   Shift.find_or_create_by(shift)
 end
 
-=begin
+
+
 users = [{:user_first_name => 'Mrs.', :user_last_name => 'Admin', :user_administrator => true, :user_priority => 5, :user_phone_number => '(555) 255-7004', :email => 'mrs.admin@scheduler.com', :password => 'password', :password_confirmation => 'password', :user_id => 1},
          {:user_first_name => 'Mr.', :user_last_name => 'Admin', :user_administrator => true, :user_priority => 5, :user_phone_number => '(555) 791-9171', :email => 'mr.admin@scheduler.com', :password => 'password', :password_confirmation => 'password', :user_id => 2},
          {:user_first_name => 'The', :user_last_name => 'Admin', :user_administrator => true, :user_priority => 5, :user_phone_number => '(555) 721-9061', :email => 'admin@scheduler.com', :password => 'password', :password_confirmation => 'password', :user_id => 3},
@@ -142,7 +143,6 @@ users = [{:user_first_name => 'Mrs.', :user_last_name => 'Admin', :user_administ
 users.each do |user|
   User.create!(user)
 end
-=end
 
 availabilities = [{:user_id => 124, :current_user_id => 101, :monday_first => true, :monday_second => false, :monday_third => false, :tuesday_first => true, :tuesday_second => false, :tuesday_third => false, :wednesday_first => true, :wednesday_second => false, :wednesday_third => false, :thursday_first => true, :thursday_second => false, :thursday_third => false, :friday_first => true, :friday_second => false, :friday_third => false, :saturday_first => true, :saturday_second => false, :saturday_third => false, :sunday_first => true, :sunday_second => false, :sunday_third => false},
                   {:user_id => 125, :current_user_id => 102, :monday_first => false, :monday_second => true, :monday_third => false, :tuesday_first => false, :tuesday_second => true, :tuesday_third => false, :wednesday_first => false, :wednesday_second => true, :wednesday_third => false, :thursday_first => false, :thursday_second => true, :thursday_third => false, :friday_first => false, :friday_second => true, :friday_third => false, :saturday_first => false, :saturday_second => true, :saturday_third => false, :sunday_first => false, :sunday_second => true, :sunday_third => false},
