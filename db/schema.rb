@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 20171205235523) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.integer "user_id"
     t.string "user_first_name"
     t.string "user_last_name"
     t.boolean "user_administrator"
@@ -111,7 +112,6 @@ ActiveRecord::Schema.define(version: 20171205235523) do
     t.string "email"
     t.string "password_digest"
     t.string "session_token"
-    t.integer "user_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["session_token"], name: "index_users_on_session_token"
   end
