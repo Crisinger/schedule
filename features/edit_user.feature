@@ -13,6 +13,6 @@ Scenario: edit a user account
   Then I should see the text "Manage Joe Somebody's Account"
   When I click the link "Edit"
   Then I should see the text "Edit Joe Somebody's Account"
-  When I have edited a user's information with the first name "SELT", last name "unchained", email "123@abc.com", phone number "(098) 765-4321", user id "12345678", administrative status "true", user priority "1", password "12345678", password confirmation "12345678"
-  Then I should see a new user with the first name "SELT", last name "unchained", email "abc@123.com", phone number "(123) 456-7890", user id "12345678", administrative status "true", user priority "1", password "12345678", password confirmation "12345678"
+  When I have edited a user's information with the first name "Joe", last name "Somebody", email "123@abc.com", phone number "(098) 765-4321", user id "1", administrative status "true", user priority "5", password "12345678", password confirmation "12345678"
+  Then I should see a user with the first name "Joe", last name "Somebody", email "abc@123.com", phone number "(098) 765-4321", user id "1", administrative status "true", user priority "5", and password "12345678"
   

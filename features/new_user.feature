@@ -11,6 +11,6 @@ Scenario: create a new user account
   Then I should see the text "All Employees"
   When I click the link "Create New Account"
   Then I should see the text "Create New Employee Account"
-  When I have added a new user with the first name "SELT", last name "unchained", email "345@def.com", phone number "(123) 456-7890", user id "12345678", administrative status "false", user priority "1", password "12345678", password confirmation "12345678"
-  Then I should see a new user with the first name "SELT", last name "unchained", email "345@def.com", phone number "(123) 456-7890", user id "12345678", administrative status "false", user priority "1", password "12345678", password confirmation "12345678"
+  When I have added a new user with the first name "SELT", last name "unchained", email "345@def.com", phone number "(123) 456-7890", user id "12345678", administrative status "false", user priority "1", password "3", password confirmation "12345678"
+  Then I should see a user with the first name "SELT", last name "unchained", email "345@def.com", phone number "(123) 456-7890", user id "12345678", administrative status "false", user priority "1", and password "3"
   
