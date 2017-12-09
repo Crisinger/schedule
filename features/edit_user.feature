@@ -6,7 +6,7 @@ Scenario: edit a user account
   | 1   | Joe       | Somebody  | true        | 5         | (123) 456-7890  | 123@abc.com | 12345678        |
   | 2   | Bill      | Nye       | false       | 1         | (098) 765-4321  | abc@123.com | 12345678        |
   Given I am signed in as an administrator
-  Then I should see the text "You are loged in as"
+  Then I should see the text "You are logged in as"
   When I click the link "Manage Accounts"
   Then I should see the text "All Employees"
   When I click the link "More about Joe"
