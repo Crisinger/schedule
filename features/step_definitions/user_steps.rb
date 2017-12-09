@@ -1,31 +1,34 @@
-Given("the following users have been added to Schedule") do |users_table|
+Given("the following users have been added") do |user_table|
   # table is a Cucumber::MultilineArgument::DataTable
-  pending # Write code here that turns the phrase above into concrete actions
-  users_table.hashes.each do |user|
-    User.new()
+  #pending # Write code here that turns the phrase above into concrete actions
+  user_table.hashes.each do |user|
+    User.new(:user_id =>user[:id],:user_first_name =>user[:firstName],:user_last_name =>user[:lastName],:user_administrator =>user[:adminStatus],:user_priority =>user[:priority],:user_phone_number =>user[:phoneNumber],:email =>user[:email],:password_digest =>user[:passwordDigest])
     # Each returned user will be a hash representing one row of the users_table
     # The keys will be the table headers and the values will be the row contents.
-    # Entries can be directly to the database with ActiveRecord methods
+    # Entries can be linked directly to the database with ActiveRecord methods
     # Add the necessary Active Record call(s) to populate the database.
   end
 end
 
 Given ("I am signed in as an administrator") do
-  pending # Write code here that turns the phrase above into concrete actions
+  #pending # Write code here that turns the phrase above into concrete actions
+  email = "123@abc.com"
+  password = "12345678"
+  
   visit new_session_path
   fill_in 'Email', :with => email
-  fill_in 'Password', :with => pasword_digest
+  fill_in 'Password', :with => password
   click_button 'Login'
 end
 
 When("I click the link {string}") do |link|
   pending # Write code here that turns the phrase above into concrete actions
-  click_link link
+  click_on link
 end
 
 When("I click the button {string}") do |button|
   pending # Write code here that turns the phrase above into concrete actions
-  click_button button
+  click_on button
 end
 
 When("I have added a new user with the first name {string}, last name {string}, email {string}, phone number {string}, user id {string}, administrative status {string}, user priority {string}, password {string}, password confirmation {string}") do |firstName, lastName, email, phoneNumber, userID, adminStatus, priority, password, passwordConfirm|
@@ -70,7 +73,7 @@ Then("I should see a new user with the first name {string}, last name {string}, 
   expect(result).to be_truthy
 end
 
-Then("I should be on the {string} page") do |page|
-  pending # Write code here that turns the phrase above into concrete actions
-  # check truth of being on "page"
+Then("I should see the text {string}") do |text|
+  #pending # Write code here that turns the phrase above into concrete actions
+  expect(page).to have_content(text)
 end
