@@ -1,4 +1,4 @@
-Given("the following") do
+Given("I am signed in") do
   pending # Write code here that turns the phrase above into concrete actions
 end
 
